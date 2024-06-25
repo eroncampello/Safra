@@ -1,14 +1,57 @@
-8=FIX.4.49=8535=A34=149=ICVM3552=20240625-13:36:37.49756=ICVM35TAR58=SINACOR-FIX98=0108=3010=246
-8=FIX.4.49=7035=A34=149=ICVM35TAR52=20240625-13:36:37.55156=ICVM3598=0108=3010=025
-8=FIX.4.49=231435=n34=249=ICVM35TAR52=20240625-13:36:37.55756=ICVM35128=ICVM3511=BV00037320240621000000000000000000160=20240625-13:36:37.557447=D448=000999452=7453=19225=bvmf.019.0220001=<?xml version="1.0" encoding="utf-8" ?><PayloadBVMF><AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd"><BizMsgIdr>BV000373202406210000000000000000001</BizMsgIdr><MsgDefIdr>bvmf.019.02</MsgDefIdr><CreDt>2024-06-24T16:55:20.0Z</CreDt><Fr><OrgId><Id><OrgId><Othr><Id>BVMF</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></Fr><To><OrgId><Id><OrgId><Othr><Id>3-59</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></To></AppHdr><Document xmlns="urn:bvmf.019.02.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:bvmf.019.02.xsd bvmf.019.02.xsd"><InfmGvUpPdgApprvl><SrcPtyInf><PtyId><PrtryId><Id>3-114</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></PtyId><AcctId><Prtry><Id>520150</Id></Prtry></AcctId></SrcPtyInf><DstnPtyInf><PtyId><PrtryId><Id>3-59</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></PtyId><AcctId><Prtry><Id>99995</Id></Prtry></AcctId></DstnPtyInf><GvUpInf><Qty><Unit>100</Unit></Qty></GvUpInf><FinInstrmId><OthrId><Id>200001451226</Id><Tp><Prtry>8</Prtry></Tp></OthrId><PlcOfListg><MktIdrCd>BVMF</MktIdrCd></PlcOfListg></FinInstrmId><SctyId><ISIN>BRMULTACNOR5</ISIN><TckrSymb>MULT3</TckrSymb></SctyId><FinInstrmAttrbts><DstrbtnId>138</DstrbtnId><Sgmt>1</Sgmt><Mkt>10</Mkt><CurFctr>1</CurFctr></FinInstrmAttrbts><TradDtls><TradId>46490</TradId><Sd>SELL</Sd><TradgSsnId>1</TradgSsnId><TradRegnOrgn>MESPC</TradRegnOrgn><TradgSsnSubId>17</TradgSsnSubId><OrdrId>8411993723870</OrdrId><TradrId>DHJ</TradrId><PmtTp>0</PmtTp><TradTxTp>0</TradTxTp><TxDtTm>2024-06-17T13:55:20.028</TxDtTm><DealPric><Val><Amt Ccy="BRL">22.29</Amt></Val></DealPric><TradDt><Dt>2024-06-17</Dt></TradDt><TradgDskId>Desk ID</TradgDskId></TradDtls><GvUpDtAndTm><DtTm>2024-06-17T13:55:20.031</DtTm></GvUpDtAndTm><Allcn><AllcnId>T-2-1718643320031-6</AllcnId></Allcn><AllcnStsAdvc><PrtrySts><StsCd>3</StsCd></PrtrySts></AllcnStsAdvc></InfmGvUpPdgApprvl></Document></PayloadBVMF>20002=211710=245
-8=FIX.4.49=269635=n34=349=ICVM35TAR52=20240625-13:36:37.55956=ICVM35128=ICVM3511=BV00037320240621000000000000000000160=20240625-13:36:37.559447=D448=000999452=7453=19225=bvmf.086.0320001=<?xml version="1.0" encoding="utf-8" ?><PayloadBVMF><AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd"><BizMsgIdr>BV000406202406210101121217488916410</BizMsgIdr><MsgDefIdr>bvmf.086.03</MsgDefIdr><CreDt>2024-06-21T15:12:17.0Z</CreDt><Fr><OrgId><Id><OrgId><Othr><Id>BVMF</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></Fr><To><OrgId><Id><OrgId><Othr><Id>3-59</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></To></AppHdr><Document xmlns="urn:bvmf.086.03.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:bvmf.086.03.xsd bvmf.086.03.xsd"><SmmdIntdyRskRspn><PgntnInf><Id><PgntnId>BV000406202406210101121217476752287</PgntnId></Id><Pgntn><PgNb>1</PgNb><LastPgInd>true</LastPgInd></Pgntn></PgntnInf><ClrMmbId><ClrMmb><Id><PrtryId><Id>2-304</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></Id></ClrMmb></ClrMmbId><PtyInf><PtyId><PrtryId><Id>3-59</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></PtyId><TradDt>2024-06-21</TradDt><DtCoreClctn>2024-06-21T12:12:17.0Z</DtCoreClctn><ClctnTp>I</ClctnTp><CnsltdOprlLmt Ccy="BRL">-5210546400.1843</CnsltdOprlLmt><SgrtdOprlLmt Ccy="BRL">-5210546400.1843</SgrtdOprlLmt><IntdyRskLmtAssd Ccy="BRL">0</IntdyRskLmtAssd><OprlLmtColl Ccy="BRL">19993843.21</OprlLmtColl><CnsltdRskXpsr Ccy="BRL">5230540243.3943</CnsltdRskXpsr><SgrtdRskXpsr Ccy="BRL">5230540243.3943</SgrtdRskXpsr><CnsltdNonAllctdRsk Ccy="BRL">0</CnsltdNonAllctdRsk><CnsltdNonAllctdPrmtLoss Ccy="BRL">0</CnsltdNonAllctdPrmtLoss><CnsltdNonAllctdRsdlTrntLoss Ccy="BRL">0</CnsltdNonAllctdRsdlTrntLoss><CnsltdNonAllctdLqdtyRsrc Ccy="BRL">0</CnsltdNonAllctdLqdtyRsrc><SgrtdNonAllctdRsk Ccy="BRL">0</SgrtdNonAllctdRsk><SgrtdNonAllctdPrmtLoss Ccy="BRL">0</SgrtdNonAllctdPrmtLoss><SgrtdNonAllctdRsdlTrntLoss Ccy="BRL">0</SgrtdNonAllctdRsdlTrntLoss><SgrtdNonAllctdLqdtyRsrc Ccy="BRL">0</SgrtdNonAllctdLqdtyRsrc><CnsltdRsdlRskInvstr Ccy="BRL">5229573909.7243</CnsltdRsdlRskInvstr><SgrtdRsdlRskInvstr Ccy="BRL">5229573909.7243</SgrtdRsdlRskInvstr><CshSctiesRsk Ccy="BRL">966333.67</CshSctiesRsk><CshSctiesColl Ccy="BRL">0</CshSctiesColl><RskMstrAccts Ccy="BRL">0</RskMstrAccts><SttlmAmt Ccy="BRL">2635942</SttlmAmt><AddtlMrgn Ccy="BRL">0</AddtlMrgn><EvtInf><EvtId>1718982737330000000</EvtId></EvtInf></PtyInf></SmmdIntdyRskRspn></Document></PayloadBVMF>20002=249910=172
-8=FIX.4.49=10635=334=249=ICVM3552=20240625-13:36:37.58256=ICVM35TAR115=ICVM3545=258=Invalid MsgType372=n373=1110=076
-8=FIX.4.49=10635=334=349=ICVM3552=20240625-13:36:37.58356=ICVM35TAR115=ICVM3545=358=Invalid MsgType372=n373=1110=079
-8=FIX.4.49=5835=034=449=ICVM3552=20240625-13:37:07.64756=ICVM35TAR10=252
-8=FIX.4.49=5835=034=449=ICVM35TAR52=20240625-13:37:07.64656=ICVM3510=251
-8=FIX.4.49=5835=034=549=ICVM3552=20240625-13:37:37.80256=ICVM35TAR10=249
-8=FIX.4.49=5835=034=549=ICVM35TAR52=20240625-13:37:37.78356=ICVM3510=001
+Para enviar a mensagem "InformGiveUpPendingApproval" (bvmf.019.02, MsgType=n), é necessário seguir um fluxo específico com a preparação e envio de mensagens anteriores. Aqui está uma visão geral das mensagens envolvidas e a estrutura necessária para enviar a mensagem final.
 
+### 1. NewOrderSingle (MsgType=D)
 
-8=FIX.4.49=231435=n34=949=ICVM35TAR52=20240621-18:29:07.63256=ICVM35128=ICVM3511=BV00034320240621000000000000000000160=20240621-18:29:07.632447=D448=000999452=7453=19225=bvmf.019.0220001=<?xml version="1.0" encoding="utf-8" ?><PayloadBVMF><AppHdr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd"><BizMsgIdr>BV000343202406210000000000000000001</BizMsgIdr><MsgDefIdr>bvmf.019.02</MsgDefIdr><CreDt>2024-06-17T16:55:20.0Z</CreDt><Fr><OrgId><Id><OrgId><Othr><Id>BVMF</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></Fr><To><OrgId><Id><OrgId><Othr><Id>3-59</Id><SchmeNm><Prtry>39</Prtry></SchmeNm><Issr>40</Issr></Othr></OrgId></Id></OrgId></To></AppHdr><Document xmlns="urn:bvmf.019.02.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:bvmf.019.02.xsd bvmf.019.02.xsd"><InfmGvUpPdgApprvl><SrcPtyInf><PtyId><PrtryId><Id>3-114</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></PtyId><AcctId><Prtry><Id>520150</Id></Prtry></AcctId></SrcPtyInf><DstnPtyInf><PtyId><PrtryId><Id>3-59</Id><Issr>40</Issr><SchmeNm>39</SchmeNm></PrtryId></PtyId><AcctId><Prtry><Id>99995</Id></Prtry></AcctId></DstnPtyInf><GvUpInf><Qty><Unit>100</Unit></Qty></GvUpInf><FinInstrmId><OthrId><Id>200001451226</Id><Tp><Prtry>8</Prtry></Tp></OthrId><PlcOfListg><MktIdrCd>BVMF</MktIdrCd></PlcOfListg></FinInstrmId><SctyId><ISIN>BRMULTACNOR5</ISIN><TckrSymb>MULT3</TckrSymb></SctyId><FinInstrmAttrbts><DstrbtnId>138</DstrbtnId><Sgmt>1</Sgmt><Mkt>10</Mkt><CurFctr>1</CurFctr></FinInstrmAttrbts><TradDtls><TradId>46490</TradId><Sd>SELL</Sd><TradgSsnId>1</TradgSsnId><TradRegnOrgn>MESPC</TradRegnOrgn><TradgSsnSubId>17</TradgSsnSubId><OrdrId>8411993723870</OrdrId><TradrId>DHJ</TradrId><PmtTp>0</PmtTp><TradTxTp>0</TradTxTp><TxDtTm>2024-06-17T13:55:20.028</TxDtTm><DealPric><Val><Amt Ccy="BRL">22.29</Amt></Val></DealPric><TradDt><Dt>2024-06-17</Dt></TradDt><TradgDskId>Desk ID</TradgDskId></TradDtls><GvUpDtAndTm><DtTm>2024-06-17T13:55:20.031</DtTm></GvUpDtAndTm><Allcn><AllcnId>T-2-1718643320031-6</AllcnId></Allcn><AllcnStsAdvc><PrtrySts><StsCd>3</StsCd></PrtrySts></AllcnStsAdvc></InfmGvUpPdgApprvl></Document></PayloadBVMF>20002=211710=236
-8=FIX.4.49=10635=334=949=ICVM3552=20240621-18:29:07.80156=ICVM35TAR115=ICVM3545=958=Invalid MsgType372=n373=1110=084
+Esta mensagem é utilizada para iniciar o processo de ordem. Aqui está um exemplo:
+
+```
+8=FIX.4.4|9=200|35=D|34=1|49=YOUR_SENDER_COMP_ID|52=20240621-18:29:07.632|56=ICVM35|11=BV000343202406210000000000000000001|21=1|38=100|40=2|44=22.29|54=1|59=0|10=220|
+```
+
+### 2. ExecutionReport (MsgType=8)
+
+Após o envio de uma nova ordem, um relatório de execução é gerado para confirmar a ordem. Aqui está um exemplo de mensagem de relatório de execução:
+
+```
+8=FIX.4.4|9=300|35=8|34=2|49=ICVM35|52=20240621-18:30:07.632|56=YOUR_SENDER_COMP_ID|37=ORDERID123|11=BV000343202406210000000000000000001|17=EXECDID123|150=0|39=0|55=SYM|54=1|38=100|44=22.29|32=100|31=22.29|6=22.29|14=100|151=0|60=20240621-18:29:07.632|10=123|
+```
+
+### 3. GiveUpInformation (MsgType=U8 - exemplo ilustrativo, verificar a tag correta no contexto)
+
+Esta mensagem seria enviada para informar os detalhes do "Give-Up". Aqui está um exemplo de como poderia ser formatada:
+
+```
+8=FIX.4.4|9=250|35=U8|34=3|49=YOUR_SENDER_COMP_ID|52=20240621-18:35:07.632|56=ICVM35|128=ICVM35|11=BV000343202406210000000000000000001|60=20240621-18:35:07.632|20001=BV000343202406210000000000000000001bvmf.019.022024-06-17T16:55:20.0Z|10=200|
+```
+
+### 4. InformGiveUpPendingApproval (MsgType=n)
+
+Finalmente, enviamos a mensagem "InformGiveUpPendingApproval" com o tipo de mensagem `n`.
+
+```
+8=FIX.4.4|9=2314|35=n|34=9|49=ICVM35TAR|52=20240621-18:29:07.632|56=ICVM35|128=ICVM35|11=BV000343202406210000000000000000001|60=20240621-18:29:07.632|447=D|448=000999|452=7|453=1|9225=bvmf.019.02|20001=BV000343202406210000000000000000001bvmf.019.022024-06-17T16:55:20.0ZBVMF39403-5939403-11440395201503-594039999951002000014512268BVMFBRMULTACNOR5MULT3138110146490SELL1MESPC178411993723870DHJ002024-06-17T13:55:20.02822.29|20002=2117|10=<CheckSum>|
+```
+
+### Estrutura da Mensagem bvmf.019.02
+
+A mensagem `bvmf.019.02` inclui vários campos essenciais, como identificadores de parte, detalhes de transação, e campos específicos de identificação proprietária.
+
+#### Campos Específicos da Mensagem bvmf.019.02:
+
+- **MsgType (35=n)**: Define o tipo de mensagem como "InformGiveUpPendingApproval".
+- **ClOrdID (11)**: Identificador único da ordem.
+- **TransactTime (60)**: Hora da transação.
+- **NoPartyIDs (453)**: Grupo de partes envolvidas na transação.
+- **PartyID (448)** e **PartyRole (452)**: Identificação e papel das partes.
+- **ProprietaryInformation (20001)** e **InformationType (9225)**: Informações proprietárias e tipo de informação.
+
+### Tipos de Mensagens FIX
+
+O padrão FIX define vários tipos de mensagens que são usadas para diferentes propósitos, incluindo:
+
+- **D (New Order - Single)**: Para enviar novas ordens.
+- **8 (Execution Report)**: Para relatar execuções de ordens.
+- **U8 (Give Up)**: Para informar detalhes de "give-up".
+- **n (Inform GiveUpPendingApproval)**: Para informar a aprovação pendente de "give-up".
+
+Este é um resumo dos passos e exemplos de mensagens necessárias para enviar a mensagem `bvmf.019.02`. Certifique-se de adaptar os campos e valores conforme necessário para o seu ambiente específico.
