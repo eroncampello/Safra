@@ -1,0 +1,3096 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan - Captura e DropCopy" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="baseDir" elementType="Argument">
+            <stringProp name="Argument.name">baseDir</stringProp>
+            <stringProp name="Argument.value">${__BeanShell(import org.apache.jmeter.services.FileServer; FileServer.getFileServer().getBaseDir();)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sleepTimeToStartInMillis" elementType="Argument">
+            <stringProp name="Argument.name">sleepTimeToStartInMillis</stringProp>
+            <stringProp name="Argument.value">120000</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="senderCompID-cap-primaria" elementType="Argument">
+            <stringProp name="Argument.name">senderCompID-cap-primaria</stringProp>
+            <stringProp name="Argument.value">SMPISO05</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="targetCompID-cap-primaria" elementType="Argument">
+            <stringProp name="Argument.name">targetCompID-cap-primaria</stringProp>
+            <stringProp name="Argument.value">C00007210</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dataPregao" elementType="Argument">
+            <stringProp name="Argument.name">dataPregao</stringProp>
+            <stringProp name="Argument.value">${__time(yyyyMMdd,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="senderCompID-dc" elementType="Argument">
+            <stringProp name="Argument.name">senderCompID-dc</stringProp>
+            <stringProp name="Argument.value">DCE101C</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="targetCompID-dc" elementType="Argument">
+            <stringProp name="Argument.name">targetCompID-dc</stringProp>
+            <stringProp name="Argument.value">DBRA5020</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="startWith" elementType="Argument">
+            <stringProp name="Argument.name">startWith</stringProp>
+            <stringProp name="Argument.value">8110</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dataDia" elementType="Argument">
+            <stringProp name="Argument.name">dataDia</stringProp>
+            <stringProp name="Argument.value">${__time(dd-MM-yyyy,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tradeSessionFix-dc" elementType="Argument">
+            <stringProp name="Argument.name">tradeSessionFix-dc</stringProp>
+            <stringProp name="Argument.value">DBRA5020</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="tradeSessionFix-cap" elementType="Argument">
+            <stringProp name="Argument.name">tradeSessionFix-cap</stringProp>
+            <stringProp name="Argument.value">C00007210</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="arquivoBmf" elementType="Argument">
+            <stringProp name="Argument.name">arquivoBmf</stringProp>
+            <stringProp name="Argument.value">plano_bmf_${__time(yyyyMMddHHmmss,)}.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="arquivoBov" elementType="Argument">
+            <stringProp name="Argument.name">arquivoBov</stringProp>
+            <stringProp name="Argument.value">plano_bov_${__time(yyyyMMddHHmmss,)}.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+    </TestPlan>
+    <hashTree>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - clordID" enabled="true">
+        <stringProp name="CounterConfig.start">${startWith}</stringProp>
+        <stringProp name="CounterConfig.end">1999999999999</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">counterClOrdID</stringProp>
+        <stringProp name="CounterConfig.format">0000000000000</stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - orderId" enabled="true">
+        <stringProp name="CounterConfig.start">${startWith}</stringProp>
+        <stringProp name="CounterConfig.end"></stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">counterOrderId</stringProp>
+        <stringProp name="CounterConfig.format">30000000</stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - tradeId" enabled="true">
+        <stringProp name="CounterConfig.start">${startWith}</stringProp>
+        <stringProp name="CounterConfig.end"></stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">counterTradeId</stringProp>
+        <stringProp name="CounterConfig.format">30000000</stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - allocId" enabled="true">
+        <stringProp name="CounterConfig.start">${startWith}</stringProp>
+        <stringProp name="CounterConfig.end"></stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">counterAllocId</stringProp>
+        <stringProp name="CounterConfig.format">000000000000</stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - controlador de throughput BMF" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1454072305000</longProp>
+        <longProp name="ThreadGroup.end_time">1454072305000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">60</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config - massa do throughput" enabled="true">
+          <stringProp name="delimiter">;</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${baseDir}/../massa/throughputBMF.csv</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames">sleepTimeThroughputInMillis,throughputPerMinute</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - esperar sessoes conectarem" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - esperando sessoes" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">Long sleepTime = Long.valueOf(vars.get(&quot;sleepTimeToStartInMillis&quot;));
+log.info(&quot; - sleeping &quot; + sleepTime + &quot; millis... (thread controle vazao, esperando sessoes fix conectarem)&quot;);
+Thread.sleep(sleepTime);
+log.info(&quot; - liberando thread de controle de vazao&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Seta Vazao inicial" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">log.info(&quot;setando vazao inicial BMF para: &quot;+ vars.get(&quot;throughputPerMinute&quot;))
+//log.info(&quot;setando vazao inicial Bovespa para: &quot;+ vars.get(&quot;throughputPerMinuteBov&quot;))
+
+props.setProperty(&quot;throughputPerMinute&quot;, vars.get(&quot;throughputPerMinute&quot;))
+//props.setProperty(&quot;throughputPerMinuteBov&quot;, vars.get(&quot;throughputPerMinuteBov&quot;))
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Altera vazao com CSV" enabled="false">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">String throughputPerMinute = vars.get(&quot;throughputPerMinute&quot;);
+//String throughputPerMinuteBov = vars.get(&quot;throughputPerMinuteBov&quot;);
+Long sleepTimeThroughputInMillis = Long.valueOf(vars.get(&quot;sleepTimeThroughputInMillis&quot;));
+
+Long TPM = Long.valueOf(throughputPerMinute) / 1;
+//Long TPMBov = Long.valueOf(throughputPerMinuteBov);
+
+//if(Long.valueOf(throughputPerMinuteBov) != 0){
+//	TPMBov = TPMBov / 1;
+//	} 
+
+throughputPerMinute = String.valueOf(TPM);
+
+props.setProperty(&quot;throughputPerMinute&quot;, throughputPerMinute);
+//props.setProperty(&quot;throughputPerMinuteBov&quot;, throughputPerMinuteBov);
+
+log.info(&quot;1 - setando throughput BMF para: &quot; + throughputPerMinute + &quot;(simulando minuto, deveria ser &quot; + Long.valueOf(throughputPerMinute) / 60 + &quot; por segundo...) - sleeping &quot; + sleepTimeThroughputInMillis + &quot; millis...&quot;);
+
+Thread.sleep(sleepTimeThroughputInMillis);
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Altera vazao com CSV original" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String throughputPerMinute = vars.get(&quot;throughputPerMinute&quot;);
+//String throughputPerMinuteBov = vars.get(&quot;throughputPerMinuteBov&quot;);
+
+Long threads = 1;
+if(props.get(&quot;numberOfThreads&quot;) != null){
+	threads = Long.valueOf(props.get(&quot;numberOfThreads&quot;));
+}
+
+Long sleepTimeThroughputInMillis = Long.valueOf(vars.get(&quot;sleepTimeThroughputInMillis&quot;));
+
+Long TPM = Long.valueOf(throughputPerMinute) / threads;
+//Long TPM = Long.valueOf(throughputPerMinute) / Long.valueOf(1);
+//Long TPMBov = (Long.valueOf(throughputPerMinuteBov) * 3) / Long.valueOf(props.get(&quot;numberOfThreads&quot;));
+
+throughputPerMinute = String.valueOf(TPM);
+//throughputPerMinuteBov = String.valueOf(TPMBov);
+
+props.setProperty(&quot;throughputPerMinute&quot;, throughputPerMinute);
+//props.setProperty(&quot;throughputPerMinuteBov&quot;, throughputPerMinuteBov);
+
+log.info(&quot;2 - setando throughput para: &quot; + throughputPerMinute + &quot;(simulando minuto, deveria ser &quot; + Long.valueOf(throughputPerMinute) / 60 + &quot; por segundo...) - sleeping &quot; + sleepTimeThroughputInMillis + &quot; millis...&quot; );
+//log.info(&quot;Volume de Bovespa por minuto: &quot;+ throughputPerMinuteBov);
+
+Thread.sleep(sleepTimeThroughputInMillis);
+
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+          <stringProp name="IfController.condition">${__groovy(&quot;0&quot;.equals(vars.get(&quot;sleepTimeThroughputInMillis&quot;)))}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+          <boolProp name="IfController.useExpression">true</boolProp>
+        </IfController>
+        <hashTree>
+          <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Test Action - sleepTimeThroughputInMillis" enabled="true">
+            <intProp name="ActionProcessor.action">0</intProp>
+            <intProp name="ActionProcessor.target">2</intProp>
+            <stringProp name="ActionProcessor.duration">${sleepTimeThroughputInMillis}</stringProp>
+          </TestAction>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - controlador de throughput BOV" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1454072305000</longProp>
+        <longProp name="ThreadGroup.end_time">1454072305000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">60</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config - massa do throughput" enabled="true">
+          <stringProp name="delimiter">;</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${baseDir}/../massa/throughputBOV.csv</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames">sleepTimeThroughputInMillis,throughputPerMinuteBov</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - esperar sessoes conectarem" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler - esperando sessoes" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">Long sleepTime = Long.valueOf(vars.get(&quot;sleepTimeToStartInMillis&quot;));
+log.info(&quot; - sleeping &quot; + sleepTime + &quot; millis... (thread controle vazao, esperando sessoes fix conectarem)&quot;);
+
+Thread.sleep(sleepTime);
+log.info(&quot; - liberando thread de controle de vazao&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">String sleepTimeThroughputInMillis = String.valueOf(vars.get(&quot;sleepTimeThroughputInMillis&quot;));
+props.setProperty(&quot;sleepTimeThroughputInMillis&quot;, sleepTimeThroughputInMillis);</stringProp>
+            </JSR223PreProcessor>
+            <hashTree/>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Seta Vazao inicial" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">log.info(&quot;setando vazao inicial Bovespa para: &quot;+ vars.get(&quot;throughputPerMinuteBov&quot;))
+
+props.setProperty(&quot;throughputPerMinuteBov&quot;, vars.get(&quot;throughputPerMinuteBov&quot;))
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Altera vazao com CSV" enabled="false">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">String throughputPerMinute = vars.get(&quot;throughputPerMinute&quot;);
+//String throughputPerMinuteBov = vars.get(&quot;throughputPerMinuteBov&quot;);
+Long sleepTimeThroughputInMillis = Long.valueOf(vars.get(&quot;sleepTimeThroughputInMillis&quot;));
+
+Long TPM = Long.valueOf(throughputPerMinute) / 1;
+//Long TPMBov = Long.valueOf(throughputPerMinuteBov);
+
+//if(Long.valueOf(throughputPerMinuteBov) != 0){
+//	TPMBov = TPMBov / 1;
+//	} 
+
+throughputPerMinute = String.valueOf(TPM);
+
+props.setProperty(&quot;throughputPerMinute&quot;, throughputPerMinute);
+//props.setProperty(&quot;throughputPerMinuteBov&quot;, throughputPerMinuteBov);
+
+log.info(&quot;1 - setando throughput BMF para: &quot; + throughputPerMinute + &quot;(simulando minuto, deveria ser &quot; + Long.valueOf(throughputPerMinute) / 60 + &quot; por segundo...) - sleeping &quot; + sleepTimeThroughputInMillis + &quot; millis...&quot;);
+
+Thread.sleep(sleepTimeThroughputInMillis);
+
+</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Altera vazao com CSV original" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">String throughputPerMinuteBov = vars.get(&quot;throughputPerMinuteBov&quot;);
+String sleepTimeThroughputInMillis = String.valueOf(vars.get(&quot;sleepTimeThroughputInMillis&quot;));
+
+Long threads = 1;
+if(props.get(&quot;numberOfThreads&quot;) != null){
+	threads = Long.valueOf(props.get(&quot;numberOfThreads&quot;));
+}
+	
+Long TPMBov = (Long.valueOf(throughputPerMinuteBov) * 3) / threads;
+
+if(TPMBov &lt; 1){
+	TPMBov = 1;
+	}
+
+throughputPerMinuteBov = String.valueOf(TPMBov);
+
+props.setProperty(&quot;throughputPerMinuteBov&quot;, throughputPerMinuteBov);
+//props.setProperty(&quot;sleepTimeThroughputInMillis&quot;, sleepTimeThroughputInMillis);
+
+log.info(&quot;Volume de Bovespa por minuto: &quot;+throughputPerMinuteBov);
+
+Thread.sleep(Long.valueOf(sleepTimeThroughputInMillis));</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - Simulador B3  Bvmf.012.02" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1450810960000</longProp>
+        <longProp name="ThreadGroup.end_time">1450810960000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Toda mensagem" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/bvmf.012.02.txt</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">logMessage12</stringProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - esperar sessoes conectarem" enabled="true"/>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="8_BeginString" elementType="Argument">
+                  <stringProp name="Argument.name">8_BeginString</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="9_BodyLength" elementType="Argument">
+                  <stringProp name="Argument.name">9_BodyLength</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="35_MsgType" elementType="Argument">
+                  <stringProp name="Argument.name">35_MsgType</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="34_MsgSeqNum" elementType="Argument">
+                  <stringProp name="Argument.name">34_MsgSeqNum</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="49_SenderCompID" elementType="Argument">
+                  <stringProp name="Argument.name">49_SenderCompID</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="52_SendingTime" elementType="Argument">
+                  <stringProp name="Argument.name">52_SendingTime</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="56_TargetCompID" elementType="Argument">
+                  <stringProp name="Argument.name">56_TargetCompID</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="1_Account" elementType="Argument">
+                  <stringProp name="Argument.name">1_Account</stringProp>
+                  <stringProp name="Argument.value">126</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="11_ClOrdID" elementType="Argument">
+                  <stringProp name="Argument.name">11_ClOrdID</stringProp>
+                  <stringProp name="Argument.value">UNIQUEID()</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="15_Currency" elementType="Argument">
+                  <stringProp name="Argument.name">15_Currency</stringProp>
+                  <stringProp name="Argument.value">BRL</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="21_HandlInst" elementType="Argument">
+                  <stringProp name="Argument.name">21_HandlInst</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="38_OrderQty" elementType="Argument">
+                  <stringProp name="Argument.name">38_OrderQty</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="40_OrdType" elementType="Argument">
+                  <stringProp name="Argument.name">40_OrdType</stringProp>
+                  <stringProp name="Argument.value">2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="44_Price" elementType="Argument">
+                  <stringProp name="Argument.name">44_Price</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="54_Side" elementType="Argument">
+                  <stringProp name="Argument.name">54_Side</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="50_sendersubid" elementType="Argument">
+                  <stringProp name="Argument.name">50_sendersubid</stringProp>
+                  <stringProp name="Argument.value">801</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="55_Symbol" elementType="Argument">
+                  <stringProp name="Argument.name">55_Symbol</stringProp>
+                  <stringProp name="Argument.value">TT013</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="59_TimeInForce" elementType="Argument">
+                  <stringProp name="Argument.name">59_TimeInForce</stringProp>
+                  <stringProp name="Argument.value">0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="60_TransactTime" elementType="Argument">
+                  <stringProp name="Argument.name">60_TransactTime</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="126_ExpireTime" elementType="Argument">
+                  <stringProp name="Argument.name">126_ExpireTime</stringProp>
+                  <stringProp name="Argument.value">20121026-21:30:13.140</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="10_CheckSum" elementType="Argument">
+                  <stringProp name="Argument.name">10_CheckSum</stringProp>
+                  <stringProp name="Argument.value">165</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">br.com.primeup.java.fixmeter.fix.messages.GenericFixMessageCfg4</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">Long sleepTime = Long.valueOf(vars.get(&quot;sleepTimeToStartInMillis&quot;));
+log.info(&quot; - sleeping &quot; + sleepTime + &quot; millis... (thread envio, esperando sessoes fix conectarem)&quot;);
+Thread.sleep(sleepTime);
+log.info(&quot; - liberando thread de envio&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">beanshell</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+          <stringProp name="filename">${baseDir}/../../massa/bvmf.013.01.txt</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">sender,target,instr_prec,instr_qtd,instr_secid,instr_symb,sell_firm,sell_route,sell_acc,buy_firm,buy_route,buy_acc,tradeId</stringProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - clordID" enabled="true">
+          <stringProp name="CounterConfig.start">1000000000000</stringProp>
+          <stringProp name="CounterConfig.end">1999999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterClordID</stringProp>
+          <stringProp name="CounterConfig.format">0000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - counterBizMsgIdBuy" enabled="true">
+          <stringProp name="CounterConfig.start">1000000000</stringProp>
+          <stringProp name="CounterConfig.end">1999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterBizMsgId</stringProp>
+          <stringProp name="CounterConfig.format">0000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler bvmf.012 com CSV" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage12&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = localDateTime.format(tradeDateFormatter);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.012
+// ------------------------------
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+String participPadding = &quot;00000000&quot; + vars.get(&quot;firm&quot;);
+vars.put(&quot;targetCompId&quot;, &quot;P&quot; + participPadding.substring(participPadding.length() - 6) + &quot;10&quot;);
+participPadding = participPadding.substring(participPadding.length() - 8);
+String bizMsgId = participPadding + vars.get(&quot;requestLoopYMD&quot;) + vars.get(&quot;requestLoopHMS&quot;) + vars.get(&quot;requestLoopSSS&quot;) + vars.get(&quot;counterBizMsgId&quot;);
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+vars.put(&quot;PartyID&quot;, participPadding.substring(participPadding.length() - 6));
+
+String allcnId = vars.get(&quot;AllcnId&quot;);
+String[] arr = allcnId.split(&quot;-&quot;);
+String newAllcnId = null;
+
+try {
+if (arr.length == 4) {
+newAllcnId = arr[0] + &quot;-&quot; + arr[1] + &quot;-&quot; + arr[2] + &quot;-&quot; + (Integer.valueOf(arr[1]) + 1);
+} else {
+newAllcnId = allcnId + &quot;erroSplit&quot;;
+}
+} catch (Exception ex) {
+newAllcnId = allcnId + &quot;erroSplit&quot;;
+}
+
+vars.put(&quot;newAllcnId&quot;, newAllcnId);
+
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot; + vars.get(&quot;bizMsgId&quot;) + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt; &lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;Rltd&gt;&lt;BizMsgIdr&gt;&quot; + vars.get(&quot;Rltd-BizMsgIdr&quot;) + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;Rltd-MsgDefIdr&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/Rltd&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.014.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.014.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.014.02.xsd bvmf.014.02.xsd\&quot;&gt;&lt;SctiesAllcnInstrStsAdvc&gt;&lt;PtyId&gt;&lt;PrtryId&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/PtyId&gt;&lt;FinInstrmId&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;FinInstrmId-OthrId-Id&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;PlcOfListg&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/PlcOfListg&gt;&lt;/FinInstrmId&gt;&lt;SctyId&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;TckrSymb&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/SctyId&gt;&lt;TradLegDtls&gt;&lt;TradDt&gt;&lt;Dt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;&lt;/Dt&gt;&lt;/TradDt&gt;&lt;TradId&gt;&quot; + vars.get(&quot;TradId&quot;) + &quot;&lt;/TradId&gt;&lt;Sd&gt;&quot; + vars.get(&quot;Sd&quot;) + &quot;&lt;/Sd&gt;&lt;/TradLegDtls&gt;&lt;AllcnDtls&gt;&lt;AllcnId&gt;&quot; + vars.get(&quot;newAllcnId&quot;) + &quot;&lt;/AllcnId&gt;&lt;PrvsAllcnId&gt;&quot; + vars.get(&quot;AllcnId&quot;) + &quot;&lt;/PrvsAllcnId&gt;&lt;IndvAllcnId&gt;&quot; + vars.get(&quot;IndvAllcnId&quot;) + &quot;&lt;/IndvAllcnId&gt;&lt;AllcnSts&gt;&lt;PrtrySts&gt;&lt;StsCd&gt;1&lt;/StsCd&gt;&lt;/PrtrySts&gt;&lt;/AllcnSts&gt;&lt;/AllcnDtls&gt;&lt;AllcnInstrSts&gt;&lt;AllcnSts&gt;&lt;PrtrySts&gt;&lt;StsCd&gt;1&lt;/StsCd&gt;&lt;/PrtrySts&gt;&lt;/AllcnSts&gt;&lt;/AllcnInstrSts&gt;&lt;/SctiesAllcnInstrStsAdvc&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+TagUtil.setMsgFixTag(20001, fixMessage, XMLContent);
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler bvmf.012 fromFile" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage12&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = localDateTime.format(tradeDateFormatter);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.012
+// ------------------------------
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+String participPadding = &quot;00000000&quot; + vars.get(&quot;firm&quot;);
+vars.put(&quot;targetCompId&quot;, &quot;P&quot; + participPadding.substring(participPadding.length() - 6) + &quot;10&quot;);
+participPadding = participPadding.substring(participPadding.length() - 8);
+String bizMsgId = participPadding + vars.get(&quot;requestLoopYMD&quot;) + vars.get(&quot;requestLoopHMS&quot;) + vars.get(&quot;requestLoopSSS&quot;) + vars.get(&quot;counterBizMsgId&quot;);
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+vars.put(&quot;PartyID&quot;, participPadding.substring(participPadding.length() - 6));
+
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="criar payload" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+
+String key = vars.get(&quot;sender&quot;);
+
+if(&quot;&lt;EOF&gt;&quot;.equals(key)) {
+
+Long sleepTimeEof = 10l;
+Thread.sleep(sleepTimeEof);
+SampleResult.setStartNextThreadLoop(true);
+
+} else {
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+String pBuy = vars.get(&quot;firm&quot;)
+
+String senderCompId = pFirm;
+String targetCompId = &quot;SIMULAB3&quot;;
+
+if(&quot;3&quot;.equalsIgnoreCase(pBuy)) senderBuy=&quot;SMPISOTESTE052&quot;;
+if(&quot;386&quot;.equalsIgnoreCase(pBuy)) senderBuy=&quot;SMPISOTESTE064&quot;;
+
+if(&quot;3&quot;.equalsIgnoreCase(pSell)) senderSell=&quot;SMPISOTESTE052&quot;;
+if(&quot;386&quot;.equalsIgnoreCase(pSell)) senderSell=&quot;SMPISOTESTE064&quot;;
+
+vars.put(&quot;senderCompId&quot;, sender);
+
+String participPaddingSell = &quot;00000000&quot; + vars.get(&quot;firm&quot;);
+vars.put(&quot;targetCompId&quot;, &quot;P&quot; + participPaddingSell.substring(participPaddingSell.length() - 6) + &quot;10&quot;);
+participPadding = participPadding.substring(participPaddingSell.length() - 8);
+String bizMsgId = vars.get(&quot;counterBizMsgId&quot;);
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+
+String XMLContent = &quot;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot; + vars.get(&quot;bizMsgId&quot;) + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt; &lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.012.01.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xmlns:n2=\&quot;urn:SUPL.012.01.xsd\&quot; xsi:schemaLocation=\&quot;urn:bvmf.012.01.xsd bvmf.012.01.xsd\&quot;&gt;&lt;TradLegNtfctn&gt;&lt;ClrMmb&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/ClrMmb&gt;&lt;ClrAcct&gt;&lt;Id&gt;&quot; + vars.get(&quot;acc&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;CLIE&lt;/Tp&gt;&lt;/ClrAcct&gt;&lt;TradLegDtls&gt;&lt;TradLegId&gt;0&lt;/TradLegId&gt;&lt;TradExctnId&gt;0&lt;/TradExctnId&gt;&lt;TradgCpcty&gt;PRIN&lt;/TradgCpcty&gt;&lt;TradTp&gt;LKTR&lt;/TradTp&gt;&lt;TradDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T00:00:00.000&lt;/TradDt&gt;&lt;BuySellInd&gt;BUYI&lt;/BuySellInd&gt;&lt;TradgPty&gt;&lt;PrtryId&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/TradgPty&gt;&lt;FinInstrmId&gt;&lt;ISIN&gt;&quot; + vars.get(&quot;instr_symb&quot;) + &quot;&lt;/ISIN&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;instr_secid&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;/FinInstrmId&gt;&lt;PlcOfTrad&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfTrad&gt;&lt;PlcOfListg&gt;&lt;Id&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/Id&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfListg&gt;&lt;TradQty&gt;&lt;Unit&gt;&quot; + vars.get(&quot;instr_qtd&quot;) + &quot;&lt;/Unit&gt;&lt;/TradQty&gt;&lt;DealPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot; + vars.get(&quot;instr_prec&quot;) + &quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/DealPric&gt;&lt;/TradLegDtls&gt;&lt;SttlmDtls&gt;&lt;SttlmAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0&lt;/Amt&gt;&lt;/SttlmAmt&gt;&lt;/SttlmDtls&gt;&lt;SplmtryData&gt;&lt;Envlp&gt;&lt;Cnts&gt;&lt;Document xmlns=\&quot;urn:SUPL.012.01.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:SUPL.012.01.xsd SUPL.012.01.xsd\&quot;&gt;&lt;TradLegNtfctnSD&gt;&lt;AllcnInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt; &lt;Allcn&gt;&lt;AllcnId&gt;T-1-&quot; + vars.get(&quot;counter&quot;) + &quot;-1&lt;/AllcnId&gt;&lt;/Allcn&gt;&lt;/AllcnInf&gt;&lt;FinInstrmId&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;instr_symb&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/FinInstrmId&gt;&lt;FinInstrmAttrbts&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Sgmt&gt;5&lt;/Sgmt&gt;&lt;Mkt&gt;3&lt;/Mkt&gt;&lt;OptnTp&gt;&lt;Cd&gt;CALL&lt;/Cd&gt;&lt;/OptnTp&gt;&lt;/FinInstrmAttrbts&gt;&lt;TradLegDtlsXtnsn&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn/TradLegDtls&lt;/PlcAndNm&gt;&lt;OrdrId&gt;&quot; + vars.get(&quot;counterBuy&quot;) + &quot;&lt;/OrdrId&gt;&lt;TradId&gt;&quot; + vars.get(&quot;tradeId&quot;) + &quot;&lt;/TradId&gt;&lt;TradMtchId&gt;&quot; + vars.get(&quot;tradeId&quot;) + &quot;&lt;/TradMtchId&gt;&lt;TradRegnOrgn&gt;&quot; + vars.get(&quot;buy_route&quot;) + &quot;&lt;/TradRegnOrgn&gt;&lt;TradrId&gt;AAR&lt;/TradrId&gt;&lt;TradTxTp&gt;0&lt;/TradTxTp&gt;&lt;TxDtTm&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;) + &quot;&lt;/TxDtTm&gt;&lt;ExrcPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot; + vars.get(&quot;instr_prec&quot;) + &quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/ExrcPric&gt;&lt;/TradLegDtlsXtnsn&gt;&lt;GvUpInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;GvUpOnCaptr&gt;false&lt;/GvUpOnCaptr&gt;&lt;/GvUpInf&gt;&lt;/TradLegNtfctnSD&gt;&lt;/Document&gt;&lt;/Cnts&gt;&lt;/Envlp&gt;&lt;/SplmtryData&gt;&lt;/TradLegNtfctn&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+vars.put(&quot;XMLContentSell&quot;, XMLContent);
+vars.put(&quot;XMLContentLenSell&quot;, XMLContentSell.length() + &quot;&quot; );
+
+vars.put(&quot;XMLContentBuy&quot;, XMLContent);
+vars.put(&quot;XMLContentLenBuy&quot;, XMLContentBuy.length() + &quot;&quot; );
+
+}
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Simple Controller" enabled="true"/>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request - send payload buy" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="8_BeginString" elementType="Argument">
+                  <stringProp name="Argument.name">8_BeginString</stringProp>
+                  <stringProp name="Argument.value">fix-automatico</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="9_BodyLength" elementType="Argument">
+                  <stringProp name="Argument.name">9_BodyLength</stringProp>
+                  <stringProp name="Argument.value">fix-automatico</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="35_MsgType" elementType="Argument">
+                  <stringProp name="Argument.name">35_MsgType</stringProp>
+                  <stringProp name="Argument.value">n</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="34_MsgSeqNum" elementType="Argument">
+                  <stringProp name="Argument.name">34_MsgSeqNum</stringProp>
+                  <stringProp name="Argument.value">fix-automatico</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="49_SenderCompID" elementType="Argument">
+                  <stringProp name="Argument.name">49_SenderCompID</stringProp>
+                  <stringProp name="Argument.value">${senderCompId}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="52_SendingTime" elementType="Argument">
+                  <stringProp name="Argument.name">52_SendingTime</stringProp>
+                  <stringProp name="Argument.value">fix-automatico</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="56_TargetCompID" elementType="Argument">
+                  <stringProp name="Argument.name">56_TargetCompID</stringProp>
+                  <stringProp name="Argument.value">${targetCompId}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="1_Account" elementType="Argument">
+                  <stringProp name="Argument.name">1_Account</stringProp>
+                  <stringProp name="Argument.value">126</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="11_ClOrdID" elementType="Argument">
+                  <stringProp name="Argument.name">11_ClOrdID</stringProp>
+                  <stringProp name="Argument.value">${bizMsgId}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="15_Currency" elementType="Argument">
+                  <stringProp name="Argument.name">15_Currency</stringProp>
+                  <stringProp name="Argument.value">BRL</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="21_HandlInst" elementType="Argument">
+                  <stringProp name="Argument.name">21_HandlInst</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="38_OrderQty" elementType="Argument">
+                  <stringProp name="Argument.name">38_OrderQty</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="40_OrdType" elementType="Argument">
+                  <stringProp name="Argument.name">40_OrdType</stringProp>
+                  <stringProp name="Argument.value">2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="44_Price" elementType="Argument">
+                  <stringProp name="Argument.name">44_Price</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="54_Side" elementType="Argument">
+                  <stringProp name="Argument.name">54_Side</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="50_sendersubid" elementType="Argument">
+                  <stringProp name="Argument.name">50_sendersubid</stringProp>
+                  <stringProp name="Argument.value">801</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="55_Symbol" elementType="Argument">
+                  <stringProp name="Argument.name">55_Symbol</stringProp>
+                  <stringProp name="Argument.value">TT013</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="59_TimeInForce" elementType="Argument">
+                  <stringProp name="Argument.name">59_TimeInForce</stringProp>
+                  <stringProp name="Argument.value">0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="60_TransactTime" elementType="Argument">
+                  <stringProp name="Argument.name">60_TransactTime</stringProp>
+                  <stringProp name="Argument.value">${requestLoopYMD}-${requestLoopH:M:S}.${requestLoopSSS}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="126_ExpireTime" elementType="Argument">
+                  <stringProp name="Argument.name">126_ExpireTime</stringProp>
+                  <stringProp name="Argument.value">20201026-21:30:13.140</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="10_CheckSum" elementType="Argument">
+                  <stringProp name="Argument.name">10_CheckSum</stringProp>
+                  <stringProp name="Argument.value">fix-automatico</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">br.com.primeup.java.fixmeter.fix.messages.GenericFixMessageCfg4</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">2</intProp>
+            <stringProp name="throughput">${__P(throughputPerMinute,120.0)}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="35=8 RAW" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;dropCopyPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = localDateTime.format(tradeDateFormatter);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-dc&quot;);
+String targetCompId = vars.get(&quot;targetCompID-dc&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+//ExecReport field
+TagUtil.setMsgFixTag(1180, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - DropCopy
+// ------------------------------
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);
+
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group - bvmf.014 from bvmf.13" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1450810960000</longProp>
+        <longProp name="ThreadGroup.end_time">1450810960000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - esperar sessoes conectarem" enabled="true"/>
+        <hashTree>
+          <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname="Java Request" enabled="true">
+            <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="8_BeginString" elementType="Argument">
+                  <stringProp name="Argument.name">8_BeginString</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="9_BodyLength" elementType="Argument">
+                  <stringProp name="Argument.name">9_BodyLength</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="35_MsgType" elementType="Argument">
+                  <stringProp name="Argument.name">35_MsgType</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="34_MsgSeqNum" elementType="Argument">
+                  <stringProp name="Argument.name">34_MsgSeqNum</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="49_SenderCompID" elementType="Argument">
+                  <stringProp name="Argument.name">49_SenderCompID</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="52_SendingTime" elementType="Argument">
+                  <stringProp name="Argument.name">52_SendingTime</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="56_TargetCompID" elementType="Argument">
+                  <stringProp name="Argument.name">56_TargetCompID</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="1_Account" elementType="Argument">
+                  <stringProp name="Argument.name">1_Account</stringProp>
+                  <stringProp name="Argument.value">126</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="11_ClOrdID" elementType="Argument">
+                  <stringProp name="Argument.name">11_ClOrdID</stringProp>
+                  <stringProp name="Argument.value">UNIQUEID()</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="15_Currency" elementType="Argument">
+                  <stringProp name="Argument.name">15_Currency</stringProp>
+                  <stringProp name="Argument.value">BRL</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="21_HandlInst" elementType="Argument">
+                  <stringProp name="Argument.name">21_HandlInst</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="38_OrderQty" elementType="Argument">
+                  <stringProp name="Argument.name">38_OrderQty</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="40_OrdType" elementType="Argument">
+                  <stringProp name="Argument.name">40_OrdType</stringProp>
+                  <stringProp name="Argument.value">2</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="44_Price" elementType="Argument">
+                  <stringProp name="Argument.name">44_Price</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="54_Side" elementType="Argument">
+                  <stringProp name="Argument.name">54_Side</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="50_sendersubid" elementType="Argument">
+                  <stringProp name="Argument.name">50_sendersubid</stringProp>
+                  <stringProp name="Argument.value">801</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="55_Symbol" elementType="Argument">
+                  <stringProp name="Argument.name">55_Symbol</stringProp>
+                  <stringProp name="Argument.value">TT013</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="59_TimeInForce" elementType="Argument">
+                  <stringProp name="Argument.name">59_TimeInForce</stringProp>
+                  <stringProp name="Argument.value">0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="60_TransactTime" elementType="Argument">
+                  <stringProp name="Argument.name">60_TransactTime</stringProp>
+                  <stringProp name="Argument.value">-</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="126_ExpireTime" elementType="Argument">
+                  <stringProp name="Argument.name">126_ExpireTime</stringProp>
+                  <stringProp name="Argument.value">20121026-21:30:13.140</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="10_CheckSum" elementType="Argument">
+                  <stringProp name="Argument.name">10_CheckSum</stringProp>
+                  <stringProp name="Argument.value">165</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="classname">br.com.primeup.java.fixmeter.fix.messages.GenericFixMessageCfg4</stringProp>
+          </JavaSampler>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">Long sleepTime = Long.valueOf(vars.get(&quot;sleepTimeToStartInMillis&quot;));
+log.info(&quot; - sleeping &quot; + sleepTime + &quot; millis... (thread envio, esperando sessoes fix conectarem)&quot;);
+Thread.sleep(sleepTime);
+log.info(&quot; - liberando thread de envio&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">beanshell</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="filename">${__P(Bvmf014FromBvmf013)}</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">sender,target,firm,Rltd-BizMsgIdr,Rltd-MsgDefIdr,TradId,Sd,IndvAllcnId,TckrSymb,FinInstrmId-OthrId-Id,AllcnId</stringProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter counter" enabled="true">
+          <stringProp name="CounterConfig.start">2000000000000</stringProp>
+          <stringProp name="CounterConfig.end">2999999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counter</stringProp>
+          <stringProp name="CounterConfig.format">0000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter counterBizMsgId" enabled="true">
+          <stringProp name="CounterConfig.start">2000000000</stringProp>
+          <stringProp name="CounterConfig.end">2999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterBizMsgId</stringProp>
+          <stringProp name="CounterConfig.format">0000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JavaSampler guiclass="JavaTestSamplerGui" testclass="JavaSampler" testname=" bvmf.014 from bvmf.13" enabled="true">
+          <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="8_BeginString" elementType="Argument">
+                <stringProp name="Argument.name">8_BeginString</stringProp>
+                <stringProp name="Argument.value">fix-automatico</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="9_BodyLength" elementType="Argument">
+                <stringProp name="Argument.name">9_BodyLength</stringProp>
+                <stringProp name="Argument.value">fix-automatico</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="35_MsgType" elementType="Argument">
+                <stringProp name="Argument.name">35_MsgType</stringProp>
+                <stringProp name="Argument.value">n</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="34_MsgSeqNum" elementType="Argument">
+                <stringProp name="Argument.name">34_MsgSeqNum</stringProp>
+                <stringProp name="Argument.value">fix-automatico</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="49_SenderCompID" elementType="Argument">
+                <stringProp name="Argument.name">49_SenderCompID</stringProp>
+                <stringProp name="Argument.value">${sender}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="52_SendingTime" elementType="Argument">
+                <stringProp name="Argument.name">52_SendingTime</stringProp>
+                <stringProp name="Argument.value">fix-automatico</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="56_TargetCompID" elementType="Argument">
+                <stringProp name="Argument.name">56_TargetCompID</stringProp>
+                <stringProp name="Argument.value">${target}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="1_Account" elementType="Argument">
+                <stringProp name="Argument.name">1_Account</stringProp>
+                <stringProp name="Argument.value">126</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="11_ClOrdID" elementType="Argument">
+                <stringProp name="Argument.name">11_ClOrdID</stringProp>
+                <stringProp name="Argument.value">${bizMsgId}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="15_Currency" elementType="Argument">
+                <stringProp name="Argument.name">15_Currency</stringProp>
+                <stringProp name="Argument.value">BRL</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="21_HandlInst" elementType="Argument">
+                <stringProp name="Argument.name">21_HandlInst</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="38_OrderQty" elementType="Argument">
+                <stringProp name="Argument.name">38_OrderQty</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="40_OrdType" elementType="Argument">
+                <stringProp name="Argument.name">40_OrdType</stringProp>
+                <stringProp name="Argument.value">2</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="44_Price" elementType="Argument">
+                <stringProp name="Argument.name">44_Price</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="54_Side" elementType="Argument">
+                <stringProp name="Argument.name">54_Side</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="50_sendersubid" elementType="Argument">
+                <stringProp name="Argument.name">50_sendersubid</stringProp>
+                <stringProp name="Argument.value">801</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="55_Symbol" elementType="Argument">
+                <stringProp name="Argument.name">55_Symbol</stringProp>
+                <stringProp name="Argument.value">TT013</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="59_TimeInForce" elementType="Argument">
+                <stringProp name="Argument.name">59_TimeInForce</stringProp>
+                <stringProp name="Argument.value">0</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="60_TransactTime" elementType="Argument">
+                <stringProp name="Argument.name">60_TransactTime</stringProp>
+                <stringProp name="Argument.value">${requestLoopYMD}-${requestLoopH:M:S}.${requestLoopSSS}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="126_ExpireTime" elementType="Argument">
+                <stringProp name="Argument.name">126_ExpireTime</stringProp>
+                <stringProp name="Argument.value">20200614-18:30:213.000</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="10_CheckSum" elementType="Argument">
+                <stringProp name="Argument.name">10_CheckSum</stringProp>
+                <stringProp name="Argument.value">fix-automatico</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="classname">br.com.primeup.java.fixmeter.fix.messages.GenericFixMessageCfg4</stringProp>
+        </JavaSampler>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">2</intProp>
+            <stringProp name="throughput">${__P(throughputPerMinute,120.0)}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler bvmf.014 com CSV" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage12&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = localDateTime.format(tradeDateFormatter);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.014
+// ------------------------------
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.014.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+String participPadding = &quot;00000000&quot; + vars.get(&quot;firm&quot;);
+vars.put(&quot;targetCompId&quot;, &quot;P&quot; + participPadding.substring(participPadding.length() - 6) + &quot;10&quot;);
+participPadding = participPadding.substring(participPadding.length() - 8);
+String bizMsgId = participPadding + vars.get(&quot;requestLoopYMD&quot;) + vars.get(&quot;requestLoopHMS&quot;) + vars.get(&quot;requestLoopSSS&quot;) + vars.get(&quot;counterBizMsgId&quot;);
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+vars.put(&quot;PartyID&quot;, participPadding.substring(participPadding.length() - 6));
+
+String allcnId = vars.get(&quot;AllcnId&quot;);
+String[] arr = allcnId.split(&quot;-&quot;);
+String newAllcnId = null;
+
+try {
+if (arr.length == 4) {
+newAllcnId = arr[0] + &quot;-&quot; + arr[1] + &quot;-&quot; + arr[2] + &quot;-&quot; + (Integer.valueOf(arr[1]) + 1);
+} else {
+newAllcnId = allcnId + &quot;erroSplit&quot;;
+}
+} catch (Exception ex) {
+newAllcnId = allcnId + &quot;erroSplit&quot;;
+}
+
+vars.put(&quot;newAllcnId&quot;, newAllcnId);
+
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot; + vars.get(&quot;bizMsgId&quot;) + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt; &lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;Rltd&gt;&lt;BizMsgIdr&gt;&quot; + vars.get(&quot;Rltd-BizMsgIdr&quot;) + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;Rltd-MsgDefIdr&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/Rltd&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.014.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.014.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.014.02.xsd bvmf.014.02.xsd\&quot;&gt;&lt;SctiesAllcnInstrStsAdvc&gt;&lt;PtyId&gt;&lt;PrtryId&gt;&lt;Id&gt;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/PtyId&gt;&lt;FinInstrmId&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;FinInstrmId-OthrId-Id&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;PlcOfListg&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/PlcOfListg&gt;&lt;/FinInstrmId&gt;&lt;SctyId&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;TckrSymb&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/SctyId&gt;&lt;TradLegDtls&gt;&lt;TradDt&gt;&lt;Dt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;&lt;/Dt&gt;&lt;/TradDt&gt;&lt;TradId&gt;&quot; + vars.get(&quot;TradId&quot;) + &quot;&lt;/TradId&gt;&lt;Sd&gt;&quot; + vars.get(&quot;Sd&quot;) + &quot;&lt;/Sd&gt;&lt;/TradLegDtls&gt;&lt;AllcnDtls&gt;&lt;AllcnId&gt;&quot; + vars.get(&quot;newAllcnId&quot;) + &quot;&lt;/AllcnId&gt;&lt;PrvsAllcnId&gt;&quot; + vars.get(&quot;AllcnId&quot;) + &quot;&lt;/PrvsAllcnId&gt;&lt;IndvAllcnId&gt;&quot; + vars.get(&quot;IndvAllcnId&quot;) + &quot;&lt;/IndvAllcnId&gt;&lt;AllcnSts&gt;&lt;PrtrySts&gt;&lt;StsCd&gt;1&lt;/StsCd&gt;&lt;/PrtrySts&gt;&lt;/AllcnSts&gt;&lt;/AllcnDtls&gt;&lt;AllcnInstrSts&gt;&lt;AllcnSts&gt;&lt;PrtrySts&gt;&lt;StsCd&gt;1&lt;/StsCd&gt;&lt;/PrtrySts&gt;&lt;/AllcnSts&gt;&lt;/AllcnInstrSts&gt;&lt;/SctiesAllcnInstrStsAdvc&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+TagUtil.setMsgFixTag(20001, fixMessage, XMLContent);
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">180</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import br.com.primeup.java.fixmeter.fix.ControllerSingleton;
+Thread.sleep(180);
+ControllerSingleton.getController();
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Simulador B3 BMF" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1450810960000</longProp>
+        <longProp name="ThreadGroup.end_time">1450810960000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">15</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV contas BMF " enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/accountsBMF.csv</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV instrumentos bmf" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/InstrumentosBMF.csv</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="send bvmf.012 com CSV" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+String fixPayload = &quot;20200414-13:30:31.307 [I]: 8=FIX.4.4&#x1;9=3111&#x1;35=n&#x1;34=341549&#x1;49=SMPISO052&#x1;52=20200414-13:30:31.473&#x1;56=P00000310&#x1;128=P00000310&#x1;11=BV000343202004140012002240002808990&#x1;60=20200414-13:30:31&#x1;453=1&#x1;447=D&#x1;448=000999&#x1;452=7&#x1;9225=bvmf.012.02&#x1;20001=PORXMLAQUI&#x1;20002=2907&#x1;10=237&#x1;&quot;
+
+//get the message from the log file example
+//String logMessage = vars.get(&quot;logMessage&quot;);
+String logMessage = fixPayload;
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+//String tradeDate = localDateTime.format(tradeDateFormatter);
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, vars.get(&quot;transactTime&quot;));
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(vars.get(&quot;tradeSessionFix-cap&quot;));
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+//TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.012
+// ------------------------------
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+
+String XMLContent = vars.get(&quot;XMLContent&quot;);
+String xmlLength = XMLContent.length();
+
+TagUtil.setMsgFixTag(20001, fixMessage, XMLContent);
+TagUtil.setMsgFixTag(20002, fixMessage, xmlLength);
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, fixMessage.toString());
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+vars.put(&quot;requestLoopSS&quot;, new SimpleDateFormat(&quot;ss&quot;).format(h));
+
+String transactTime = vars.get(&quot;requestLoopYMD&quot;)+ &quot;-&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;);
+vars.put(&quot;transactTime&quot;, transactTime);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="criar payload PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+
+String key = vars.get(&quot;ISIN&quot;);
+
+if(&quot;&lt;EOF&gt;&quot;.equals(key)) {
+
+Long sleepTimeEof = 1l;
+Thread.sleep(sleepTimeEof);
+SampleResult.setStartNextThreadLoop(true);
+
+} else {
+//OUT.println(&quot;entrou&quot;);
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+
+String allocId = &quot;T-2-&quot; + vars.get(&quot;counterAllocId&quot;) + &quot;-1&quot;;
+
+Long segundos = new Long(vars.get(&quot;requestLoopSS&quot;)) ;
+int indexPos = vars.get(&quot;PRECO&quot;).indexOf(&apos;.&apos;);
+double valor = vars.get(&quot;PRECO&quot;).toDouble();	
+int precoSec = segundos.toInteger() % 5;
+Boolean interruptor = vars.getObject(&quot;interruptor&quot;);
+if (interruptor == null ){
+	interruptor = new Boolean(true);
+	}
+
+if (precoSec == 0){
+	interruptor = !interruptor.booleanValue();
+	vars.putObject(&quot;interruptor&quot;, interruptor);
+	}
+Random random = new Random();
+if(indexPos &gt;= 0){
+	valor = Math.round((valor +random.nextInt(500)/100)*100)/100;
+}else {
+	valor = valor - 1 + random.nextInt(100);
+}
+
+String preco;
+if(indexPos &gt;= 0){
+	preco = valor.toString();
+
+}else{
+	preco = valor.toInteger().toString();	
+}
+
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+clOrdIDStr = vars.get(&quot;requestLoopYMD&quot;) + clOrdIDStr;
+String bizMsgId = clOrdIDStr;
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;BUYI&quot;;
+} else {
+	side = &quot;SELL&quot;;
+}
+String operation = side;
+new File(vars.get(&quot;arquivoBmf&quot;)).append(vars.get(&quot;symbol&quot;)+&quot;;&quot;+vars.get(&quot;account&quot;)+&quot;;&quot;+ preco +&quot;\r\n&quot;);
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot;+ bizMsgId + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.012.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.012.02.xsd bvmf.012.02.xsd\&quot;&gt;&lt;TradLegNtfctn&gt;&lt;ClrMmb&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;2-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/ClrMmb&gt;&lt;ClrAcct&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;CLIE&lt;/Tp&gt;&lt;/ClrAcct&gt;&lt;TradLegDtls&gt;&lt;TradLegId&gt;0&lt;/TradLegId&gt;&lt;TradExctnId&gt;0&lt;/TradExctnId&gt;&lt;TradgCpcty&gt;PRIN&lt;/TradgCpcty&gt;&lt;TradTp&gt;LKTR&lt;/TradTp&gt;&lt;TradDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T00:00:00.000&lt;/TradDt&gt;&lt;BuySellInd&gt;&quot;+ operation +&quot;&lt;/BuySellInd&gt;&lt;TradgPty&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/TradgPty&gt;&lt;FinInstrmId&gt;&lt;ISIN&gt;&quot; + vars.get(&quot;ISIN&quot;) + &quot;&lt;/ISIN&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;finInstrId&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;/FinInstrmId&gt;&lt;PlcOfTrad&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfTrad&gt;&lt;PlcOfListg&gt;&lt;Id&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/Id&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfListg&gt;&lt;TradQty&gt;&lt;Unit&gt;100&lt;/Unit&gt;&lt;/TradQty&gt;&lt;DealPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot; + preco +&quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/DealPric&gt;&lt;/TradLegDtls&gt;&lt;SttlmDtls&gt;&lt;SttlmAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0&lt;/Amt&gt;&lt;/SttlmAmt&gt;&lt;/SttlmDtls&gt;&lt;SplmtryData&gt;&lt;Envlp&gt;&lt;Cnts&gt;&lt;Document xmlns=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:SUPL.012.02  SUPL.012.02.xsd\&quot;&gt;&lt;TradLegNtfctnSD&gt;&lt;AllcnInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Allcn&gt;&lt;AllcnId&gt;&quot; + allocId + &quot;&lt;/AllcnId&gt;&lt;/Allcn&gt;&lt;/AllcnInf&gt;&lt;FinInstrmId&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;symbol&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/FinInstrmId&gt;&lt;FinInstrmAttrbts&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Sgmt&gt;&quot; + vars.get(&quot;segmento&quot;) + &quot;&lt;/Sgmt&gt;&lt;Mkt&gt;&quot; + vars.get(&quot;mercado&quot;) + &quot;&lt;/Mkt&gt;&lt;/FinInstrmAttrbts&gt;&lt;TradLegDtlsXtnsn&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn/TradLegDtls&lt;/PlcAndNm&gt;&lt;OrdrId&gt;&quot; + vars.get(&quot;counterOrderId&quot;) + &quot;&lt;/OrdrId&gt;&lt;TradId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradId&gt;&lt;TradMtchId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradMtchId&gt;&lt;TradgSsnId&gt;1&lt;/TradgSsnId&gt;&lt;TradRegnOrgn&gt;BVMF&lt;/TradRegnOrgn&gt;&lt;TradgSsnSubId&gt;17&lt;/TradgSsnSubId&gt;&lt;SctyTradgSts&gt;17&lt;/SctyTradgSts&gt;&lt;TradrId&gt;379&lt;/TradrId&gt;&lt;TradTxTp&gt;0&lt;/TradTxTp&gt;&lt;TxDtTm&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;)+ &quot;&lt;/TxDtTm&gt;&lt;/TradLegDtlsXtnsn&gt;&lt;GvUpInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;GvUpOnCaptr&gt;false&lt;/GvUpOnCaptr&gt;&lt;/GvUpInf&gt;&lt;/TradLegNtfctnSD&gt;&lt;/Document&gt;&lt;/Cnts&gt;&lt;/Envlp&gt;&lt;/SplmtryData&gt;&lt;/TradLegNtfctn&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+
+vars.put(&quot;XMLContent&quot;, XMLContent);
+vars.put(&quot;XMLContentLen&quot;, XMLContent.length() + &quot;&quot; );
+
+}
+
+</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <stringProp name="throughput">${__P(throughputPerMinute)}</stringProp>
+          <intProp name="calcMode">0</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Simulador B3 Bovespa" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1450810960000</longProp>
+        <longProp name="ThreadGroup.end_time">1450810960000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">15</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV contas BOV" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/accountsBOV.csv</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.thread</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV instrumentos bov" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/InstrumentosBOV.csv</stringProp>
+          <stringProp name="fileEncoding">UTF-8</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="35=8 ordem CSV" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;dropCopyPool&quot;);
+
+//String logMessage = vars.get(&quot;logMessage&quot;);
+String senderLocationValue = vars.get(&quot;senderLocationValue&quot;);
+String logMessage = &quot;8=FIX.4.4&#x1;9=437&#x1;35=8&#x1;34=1&#x1;43=Y&#x1;49=DCE102&#x1;52=20200414-10:00:05.286&#x1;56=DXPI5001&#x1;122=20200414-08:00:00.054&#x1;128=CXPIA378&#x1;1=70943&#x1;6=0&#x1;11=O_000436921348&#x1;14=0&#x1;17=90197:16136380&#x1;37=901629768942&#x1;38=900&#x1;39=4&#x1;40=2&#x1;44=0.75&#x1;54=1&#x1;55=BBDCD201&#x1;59=1&#x1;60=20200414-08:00:00.001&#x1;75=20200406&#x1;150=4&#x1;151=0&#x1;198=903026753458&#x1;207=BVMF&#x1;378=8&#x1;453=5&#x1;448=72&#x1;447=D&#x1;452=7&#x1;448=&quot;+senderLocationValue+&quot;&#x1;447=D&#x1;452=54&#x1;448=378&#x1;447=D&#x1;452=36&#x1;448=#PSLOW#&#x1;447=D&#x1;452=76&#x1;448=357122011&#x1;447=D&#x1;452=5&#x1;581=39&#x1;1180=CXPIA378&#x1;10=110&#x1;&quot;;
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-dc&quot;);
+String targetCompId = vars.get(&quot;targetCompID-dc&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(vars.get(&quot;tradeSessionFix-dc&quot;));
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+//ExecReport field
+TagUtil.setMsgFixTag(1180, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+String clOrdID = tradeDate + clOrdIDStr;
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+TagUtil.setMsgFixTag(60, fixMessage, vars.get(&quot;transactTime&quot;));
+
+// set specific fields - DropCopy
+// ------------------------------
+TagUtil.setMsgFixTag(150, fixMessage, &quot;0&quot;);
+// quantity
+TagUtil.setMsgFixTag(38, fixMessage, &quot;100&quot;);
+// OrdStatus New 0
+TagUtil.setMsgFixTag(39, fixMessage, &quot;0&quot;);
+// OrdType LIMIT 2
+TagUtil.setMsgFixTag(40, fixMessage, &quot;2&quot;);
+// preco
+TagUtil.setMsgFixTag(44, fixMessage, vars.get(&quot;PRECO&quot;));
+// side
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;1&quot;;
+} else {
+	side = &quot;2&quot;;
+}
+TagUtil.setMsgFixTag(54, fixMessage, side);
+TagUtil.setMsgFixTag(1, fixMessage, vars.get(&quot;account&quot;));
+TagUtil.setMsgFixTag(55, fixMessage, vars.get(&quot;symbol&quot;));
+// ordem valida somente para o dia
+TagUtil.setMsgFixTag(59, fixMessage, &quot;0&quot;);
+//OrderId
+TagUtil.setMsgFixTag(37, fixMessage, vars.get(&quot;counterOrderId&quot;));
+//TradeId
+TagUtil.setMsgFixTag(17, fixMessage, vars.get(&quot;counterTradeId&quot;));
+
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="ThreadSleep " enabled="false">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">false</stringProp>
+            <stringProp name="script">//If criado pela necessidade deste thread group ter sleep igual ao do thread group controlador de throughput BOV
+
+//System.out.println(props.get(&quot;sleepTimeThroughputInMillis&quot;));
+Long tempoDeBov = Long.valueOf(props.get(&quot;sleepTimeThroughputInMillis&quot;));
+//log.info(&quot;Tempo de sleep Bovespa: &quot;+ props.get(&quot;sleepTimeThroughputInMillis&quot;));
+
+if(tempoDeBov != 60000){
+	log.info(&quot;Tempo de sleep Bovespa: &quot;+ props.get(&quot;sleepTimeThroughputInMillis&quot;));
+	Thread.sleep(Long.valueOf(props.get(&quot;sleepTimeThroughputInMillis&quot;)));
+	}</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Altera senderLocation" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">String senderLocation = vars.get(&quot;senderLocation&quot;)
+String senderLocationValue = &quot;DMA1&quot;
+
+//DMA1 valor do sendLocation Default
+
+switch (senderLocation){
+	case &quot;hft&quot;: 
+		senderLocationValue = &quot;STSF&quot;
+	break;
+	case &quot;admincon&quot;:
+		senderLocationValue = &quot;BVMF&quot;
+		//Validar, pois o valor BVMF nao indica totalmente que a mensagem e admincon, talvez deva-se considerar o tipo da conta do cliente.
+	break;
+	case &quot;default&quot;:
+		senderLocationValue = &quot;DMA1&quot;
+	break;
+	}
+
+vars.put(&quot;senderLocationValue&quot;, senderLocationValue)</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+
+String transactTime = vars.get(&quot;requestLoopYMD&quot;)+ &quot;-&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;);
+vars.put(&quot;transactTime&quot;, transactTime);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="35=8 execucao" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;dropCopyPool&quot;);
+String senderLocationValue = vars.get(&quot;senderLocationValue&quot;);
+
+String fixPayloadExecucao = &quot;8=FIX.4.4&#x1;9=445&#x1;35=8&#x1;34=4456960&#x1;49=DCE302&#x1;52=20200804-20:49:23.717&#x1;56=IXPI2002&#x1;128=CXPIA379&#x1;1=4170105&#x1;6=0&#x1;11=O_000969383180&#x1;14=200&#x1;17=88220:1123237:2&#x1;31=19.72&#x1;32=100&#x1;37=882851525021&#x1;38=200&#x1;39=2&#x1;40=2&#x1;44=19.72&#x1;54=1&#x1;55=AZUL4&#x1;59=0&#x1;60=20200804-20:49:23.716&#x1;75=20200804&#x1;150=F&#x1;151=0&#x1;198=888445880671&#x1;207=BVMF&#x1;336=6&#x1;382=1&#x1;375=3&#x1;453=4&#x1;448=72&#x1;447=D&#x1;452=7&#x1;448=&quot;+senderLocationValue+&quot;&#x1;447=D&#x1;452=54&#x1;448=379&#x1;447=D&#x1;452=36&#x1;448=1794506705&#x1;447=D&#x1;452=5&#x1;581=39&#x1;625=17&#x1;1057=N&#x1;1180=CXPIA379&#x1;6032=173770&#x1;10=161&#x1;&quot;;
+
+//get the message from the log file
+String logMessage = fixPayloadExecucao;
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, vars.get(&quot;transactTime&quot;));
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-dc&quot;);
+String targetCompId = vars.get(&quot;targetCompID-dc&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(vars.get(&quot;tradeSessionFix-dc&quot;));
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+//ExecReport field
+TagUtil.setMsgFixTag(1180, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+String clOrdID = tradeDate + clOrdIDStr;
+
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - DropCopy
+// ------------------------------
+TagUtil.setMsgFixTag(150, fixMessage, &quot;F&quot;);
+// quantity
+TagUtil.setMsgFixTag(38, fixMessage, &quot;100&quot;);
+// OrdStatus New 0
+TagUtil.setMsgFixTag(39, fixMessage, &quot;2&quot;);
+// OrdType LIMIT 2
+TagUtil.setMsgFixTag(40, fixMessage, &quot;2&quot;);
+// preco
+TagUtil.setMsgFixTag(44, fixMessage, vars.get(&quot;PRECO&quot;));
+//last price
+TagUtil.setMsgFixTag(31, fixMessage, vars.get(&quot;PRECO&quot;));
+
+// side
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;1&quot;;
+} else {
+	side = &quot;2&quot;;
+}
+TagUtil.setMsgFixTag(54, fixMessage, side);
+TagUtil.setMsgFixTag(1, fixMessage, vars.get(&quot;account&quot;));
+TagUtil.setMsgFixTag(55, fixMessage, vars.get(&quot;symbol&quot;));
+//OrderId e TradeId
+String tradeId = vars.get(&quot;counterTradeId&quot;);
+TagUtil.setMsgFixTag(37, fixMessage, tradeId);
+TagUtil.setMsgFixTag(17, fixMessage, tradeId);
+TagUtil.setMsgFixTag(6032, fixMessage, tradeId);
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+
+String transactTime = vars.get(&quot;requestLoopYMD&quot;)+ &quot;-&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;);
+vars.put(&quot;transactTime&quot;, transactTime);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="send bvmf.012 com CSV" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+String fixPayload = &quot;20200414-13:30:31.307 [I]: 8=FIX.4.4&#x1;9=3111&#x1;35=n&#x1;34=341549&#x1;49=SMPISO052&#x1;52=20200414-13:30:31.473&#x1;56=P00000310&#x1;128=P00000310&#x1;11=BV000343202004140012002240002808990&#x1;60=20200414-13:30:31&#x1;453=1&#x1;447=D&#x1;448=3&#x1;452=7&#x1;9225=bvmf.012.02&#x1;20001=PORXMLAQUI&#x1;20002=2907&#x1;10=237&#x1;&quot;
+
+//get the message from the log file example
+//String logMessage = vars.get(&quot;logMessage&quot;);
+String logMessage = fixPayload;
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+//String tradeDate = localDateTime.format(tradeDateFormatter);
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, vars.get(&quot;transactTime&quot;));
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(vars.get(&quot;tradeSessionFix-cap&quot;));
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+//TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.012
+// ------------------------------
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+
+String XMLContent = vars.get(&quot;XMLContent&quot;);
+String xmlLength = XMLContent.length();
+
+TagUtil.setMsgFixTag(20001, fixMessage, XMLContent);
+TagUtil.setMsgFixTag(20002, fixMessage, xmlLength);
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, fixMessage.toString());
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+vars.put(&quot;requestLoopSS&quot;, new SimpleDateFormat(&quot;ss&quot;).format(h));
+
+String transactTime = vars.get(&quot;requestLoopYMD&quot;)+ &quot;-&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;);
+vars.put(&quot;transactTime&quot;, transactTime);
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="criar payload PreProcessor" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+
+String key = vars.get(&quot;ISIN&quot;);
+
+Random random = new Random();
+int precoRandom =  random.nextInt(10)+1; 
+
+if(&quot;&lt;EOF&gt;&quot;.equals(key)) {
+
+Long sleepTimeEof = 1l;
+Thread.sleep(sleepTimeEof);
+SampleResult.setStartNextThreadLoop(true);
+
+} else {
+//OUT.println(&quot;entrou&quot;);
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+
+String allocId = &quot;T-3-&quot; + vars.get(&quot;counterAllocId&quot;) + &quot;-1&quot;;
+
+Long segundos = new Long(vars.get(&quot;requestLoopSS&quot;)) ;
+double valor = vars.get(&quot;PRECO&quot;).toDouble();
+int precoSec = segundos.toInteger() % 5;
+Boolean interruptor = vars.getObject(&quot;interruptor&quot;);
+if (interruptor == null ){
+	interruptor = new Boolean(true);
+	}
+
+if (precoSec == 0){
+	interruptor = !interruptor.booleanValue();
+	vars.putObject(&quot;interruptor&quot;, interruptor);
+	}
+
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+clOrdIDStr = vars.get(&quot;requestLoopYMD&quot;) + clOrdIDStr;
+String bizMsgId = clOrdIDStr;
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;BUYI&quot;;
+} else {
+	side = &quot;SELL&quot;;
+}
+String operation = side;
+
+String senderLocationValue = vars.get(&quot;senderLocationValue&quot;);
+new File(vars.get(&quot;arquivoBov&quot;)).append(vars.get(&quot;symbol&quot;)+&quot;;&quot;+vars.get(&quot;account&quot;)+&quot;;&quot;+vars.get(&quot;PRECO&quot;)+&quot;\r\n&quot;);
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot;+ bizMsgId + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.012.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.012.02.xsd bvmf.012.02.xsd\&quot;&gt;&lt;TradLegNtfctn&gt;&lt;ClrMmb&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;2-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/ClrMmb&gt;&lt;ClrAcct&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;CLIE&lt;/Tp&gt;&lt;/ClrAcct&gt;&lt;TradLegDtls&gt;&lt;TradLegId&gt;0&lt;/TradLegId&gt;&lt;TradExctnId&gt;0&lt;/TradExctnId&gt;&lt;TradgCpcty&gt;PRIN&lt;/TradgCpcty&gt;&lt;TradTp&gt;LKTR&lt;/TradTp&gt;&lt;TradDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T00:00:00.000&lt;/TradDt&gt;&lt;BuySellInd&gt;&quot;+ operation +&quot;&lt;/BuySellInd&gt;&lt;TradgPty&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;3-&quot;+ vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/TradgPty&gt;&lt;FinInstrmId&gt;&lt;ISIN&gt;&quot; + vars.get(&quot;ISIN&quot;) + &quot;&lt;/ISIN&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;finInstrId&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;/FinInstrmId&gt;&lt;PlcOfTrad&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfTrad&gt;&lt;PlcOfListg&gt;&lt;Id&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/Id&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfListg&gt;&lt;TradQty&gt;&lt;Unit&gt;100&lt;/Unit&gt;&lt;/TradQty&gt;&lt;DealPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot;+vars.get(&quot;PRECO&quot;)+&quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/DealPric&gt;&lt;/TradLegDtls&gt;&lt;SttlmDtls&gt;&lt;SttlmAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0&lt;/Amt&gt;&lt;/SttlmAmt&gt;&lt;/SttlmDtls&gt;&lt;SplmtryData&gt;&lt;Envlp&gt;&lt;Cnts&gt;&lt;Document xmlns=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:SUPL.012.02  SUPL.012.02.xsd\&quot;&gt;&lt;TradLegNtfctnSD&gt;&lt;AllcnInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Allcn&gt;&lt;AllcnId&gt;&quot; + allocId + &quot;&lt;/AllcnId&gt;&lt;SubAcct&gt;21016&lt;/SubAcct&gt;&lt;/Allcn&gt;&lt;CtdnIdAndAcct&gt;&lt;PtyId&gt;&lt;PrtryId&gt;&lt;Id&gt;1-&quot;+ vars.get(&quot;firm&quot;)+&quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/PtyId&gt;&lt;AcctId&gt;&lt;Prtry&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;/Prtry&gt;&lt;/AcctId&gt;&lt;/CtdnIdAndAcct&gt;&lt;/AllcnInf&gt;&lt;FinInstrmId&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;symbol&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/FinInstrmId&gt;&lt;FinInstrmAttrbts&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;CurFctr&gt;1&lt;/CurFctr&gt;&lt;Sgmt&gt;&quot; + vars.get(&quot;segmento&quot;) + &quot;&lt;/Sgmt&gt;&lt;Mkt&gt;&quot; + vars.get(&quot;mercado&quot;) + &quot;&lt;/Mkt&gt;&lt;/FinInstrmAttrbts&gt;&lt;TradLegDtlsXtnsn&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn/TradLegDtls&lt;/PlcAndNm&gt;&lt;OrdrId&gt;&quot; + vars.get(&quot;counterOrderId&quot;) + &quot;&lt;/OrdrId&gt;&lt;TradId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradId&gt;&lt;TradMtchId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradMtchId&gt;&lt;TradgSsnId&gt;1&lt;/TradgSsnId&gt;&lt;TradRegnOrgn&gt;&quot;+senderLocationValue+&quot;&lt;/TradRegnOrgn&gt;&lt;TradgSsnSubId&gt;17&lt;/TradgSsnSubId&gt;&lt;TradgDskId&gt;#PSLOW#&lt;/TradgDskId&gt;&lt;TradrId&gt;379&lt;/TradrId&gt;&lt;TradTxTp&gt;0&lt;/TradTxTp&gt;&lt;TxDtTm&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;)+ &quot;&lt;/TxDtTm&gt;&lt;ExrcPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot;+vars.get(&quot;PRECO&quot;)+&quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/ExrcPric&gt;&lt;GrssTradAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot;+vars.get(&quot;PRECO&quot;)+&quot;&lt;/Amt&gt;&lt;/GrssTradAmt&gt;&lt;/TradLegDtlsXtnsn&gt;&lt;GvUpInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;GvUpOnCaptr&gt;false&lt;/GvUpOnCaptr&gt;&lt;/GvUpInf&gt;&lt;/TradLegNtfctnSD&gt;&lt;/Document&gt;&lt;/Cnts&gt;&lt;/Envlp&gt;&lt;/SplmtryData&gt;&lt;/TradLegNtfctn&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+
+vars.put(&quot;XMLContent&quot;, XMLContent);
+vars.put(&quot;XMLContentLen&quot;, XMLContent.length() + &quot;&quot; );
+
+}</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="criar payload bvmf.012" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+
+String key = vars.get(&quot;ISIN&quot;);
+
+if(&quot;&lt;EOF&gt;&quot;.equals(key)) {
+
+Long sleepTimeEof = 1l;
+Thread.sleep(sleepTimeEof);
+SampleResult.setStartNextThreadLoop(true);
+
+} else {
+//OUT.println(&quot;entrou&quot;);
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+
+String allocId = &quot;T-3-&quot; + vars.get(&quot;counterAllocId&quot;) + &quot;-1&quot;;
+
+Long segundos = new Long(vars.get(&quot;requestLoopSS&quot;)) ;
+double valor = 0.00;
+int precoSec = segundos.toInteger() % 5;
+Boolean interruptor = vars.getObject(&quot;interruptor&quot;);
+if (interruptor == null ){
+	interruptor = new Boolean(true);
+	}
+
+if (precoSec == 0){
+	interruptor = !interruptor.booleanValue();
+	vars.putObject(&quot;interruptor&quot;, interruptor);
+	}
+	
+if(interruptor){
+		valor = (precoSec /100) + 0.01;
+	}else {
+		valor = 0.05 - (precoSec /100);
+	}
+
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+clOrdIDStr = vars.get(&quot;requestLoopYMD&quot;) + clOrdIDStr;
+String bizMsgId = clOrdIDStr;
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;BUYI&quot;;
+} else {
+	side = &quot;SELL&quot;;
+}
+String operation = side;
+
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot;+ bizMsgId + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.012.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.012.02.xsd bvmf.012.02.xsd\&quot;&gt;&lt;TradLegNtfctn&gt;&lt;ClrMmb&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;2-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/ClrMmb&gt;&lt;ClrAcct&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;CLIE&lt;/Tp&gt;&lt;/ClrAcct&gt;&lt;TradLegDtls&gt;&lt;TradLegId&gt;0&lt;/TradLegId&gt;&lt;TradExctnId&gt;0&lt;/TradExctnId&gt;&lt;TradgCpcty&gt;PRIN&lt;/TradgCpcty&gt;&lt;TradTp&gt;LKTR&lt;/TradTp&gt;&lt;TradDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T00:00:00.000&lt;/TradDt&gt;&lt;BuySellInd&gt;&quot;+ operation +&quot;&lt;/BuySellInd&gt;&lt;TradgPty&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/TradgPty&gt;&lt;FinInstrmId&gt;&lt;ISIN&gt;&quot; + vars.get(&quot;ISIN&quot;) + &quot;&lt;/ISIN&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;finInstrId&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;/FinInstrmId&gt;&lt;PlcOfTrad&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfTrad&gt;&lt;PlcOfListg&gt;&lt;Id&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/Id&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfListg&gt;&lt;TradQty&gt;&lt;Unit&gt;100&lt;/Unit&gt;&lt;/TradQty&gt;&lt;DealPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0.02&lt;/Amt&gt;&lt;/Val&gt;&lt;/DealPric&gt;&lt;/TradLegDtls&gt;&lt;SttlmDtls&gt;&lt;SttlmAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0&lt;/Amt&gt;&lt;/SttlmAmt&gt;&lt;/SttlmDtls&gt;&lt;SplmtryData&gt;&lt;Envlp&gt;&lt;Cnts&gt;&lt;Document xmlns=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:SUPL.012.02  SUPL.012.02.xsd\&quot;&gt;&lt;TradLegNtfctnSD&gt;&lt;AllcnInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Allcn&gt;&lt;AllcnId&gt;&quot; + allocId + &quot;&lt;/AllcnId&gt;&lt;SubAcct&gt;21016&lt;/SubAcct&gt;&lt;/Allcn&gt;&lt;CtdnIdAndAcct&gt;&lt;PtyId&gt;&lt;PrtryId&gt;&lt;Id&gt;1-72&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/PtyId&gt;&lt;AcctId&gt;&lt;Prtry&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;/Prtry&gt;&lt;/AcctId&gt;&lt;/CtdnIdAndAcct&gt;&lt;/AllcnInf&gt;&lt;FinInstrmId&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;symbol&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/FinInstrmId&gt;&lt;FinInstrmAttrbts&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;CurFctr&gt;1&lt;/CurFctr&gt;&lt;Sgmt&gt;&quot; + vars.get(&quot;segmento&quot;) + &quot;&lt;/Sgmt&gt;&lt;Mkt&gt;&quot; + vars.get(&quot;mercado&quot;) + &quot;&lt;/Mkt&gt;&lt;/FinInstrmAttrbts&gt;&lt;TradLegDtlsXtnsn&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn/TradLegDtls&lt;/PlcAndNm&gt;&lt;OrdrId&gt;&quot; + vars.get(&quot;counterOrderId&quot;) + &quot;&lt;/OrdrId&gt;&lt;TradId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradId&gt;&lt;TradMtchId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradMtchId&gt;&lt;TradgSsnId&gt;1&lt;/TradgSsnId&gt;&lt;TradRegnOrgn&gt;DMA1&lt;/TradRegnOrgn&gt;&lt;TradgSsnSubId&gt;17&lt;/TradgSsnSubId&gt;&lt;TradgDskId&gt;#PSLOW#&lt;/TradgDskId&gt;&lt;TradrId&gt;379&lt;/TradrId&gt;&lt;TradTxTp&gt;0&lt;/TradTxTp&gt;&lt;TxDtTm&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;)+ &quot;&lt;/TxDtTm&gt;&lt;ExrcPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;&quot;+valor+&quot;&lt;/Amt&gt;&lt;/Val&gt;&lt;/ExrcPric&gt;&lt;GrssTradAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;100.00000&lt;/Amt&gt;&lt;/GrssTradAmt&gt;&lt;/TradLegDtlsXtnsn&gt;&lt;GvUpInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;GvUpOnCaptr&gt;false&lt;/GvUpOnCaptr&gt;&lt;/GvUpInf&gt;&lt;/TradLegNtfctnSD&gt;&lt;/Document&gt;&lt;/Cnts&gt;&lt;/Envlp&gt;&lt;/SplmtryData&gt;&lt;/TradLegNtfctn&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+
+vars.put(&quot;XMLContent&quot;, XMLContent);
+vars.put(&quot;XMLContentLen&quot;, XMLContent.length() + &quot;&quot; );
+
+}
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <stringProp name="throughput">${__P(throughputPerMinuteBov)}</stringProp>
+          <intProp name="calcMode">0</intProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="testa alterador de vazao" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">
+int j = 1;
+for (int i = 0; i &lt; 100000; i++) {
+
+	j += 1;
+}
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+            <intProp name="calcMode">2</intProp>
+            <stringProp name="throughput">${__P(throughputPerMinute,120.0)}</stringProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Graph Results" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <PostThreadGroup guiclass="PostThreadGroupGui" testclass="PostThreadGroup" testname="tearDown Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${__P(tearDownLoopCount,1)}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1463432939000</longProp>
+        <longProp name="ThreadGroup.end_time">1463432939000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </PostThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">Long sleepTime = Long.valueOf(props.get(&quot;tearDownSleepTime&quot;, &quot;5000&quot;));
+
+log.info(&quot;sleeping &quot; + sleepTime + &quot; millis... (tearDown Thread Group)&quot;);
+
+Thread.sleep(sleepTime);
+</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Simulador B3 - RAW bvmf.12" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">2</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThreads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1450810960000</longProp>
+        <longProp name="ThreadGroup.end_time">1450810960000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV DropCopy" enabled="false">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${baseDir}/../massa/dropCopy.txt</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">logMessage</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV contas" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/accounts.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV instrumentos" enabled="false">
+          <stringProp name="filename">${baseDir}/../massa/instrumentos.txt</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Toda mensagem" enabled="true">
+          <stringProp name="filename">${baseDir}/../massa/bvmf.012.02-entrou.raw</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">logMessage</stringProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <OnceOnlyController guiclass="OnceOnlyControllerGui" testclass="OnceOnlyController" testname="Once Only Controller - esperar sessoes conectarem" enabled="true"/>
+        <hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="JSR223 Sampler" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">Long sleepTime = Long.valueOf(vars.get(&quot;sleepTimeToStartInMillis&quot;));
+log.info(&quot; - sleeping &quot; + sleepTime + &quot; millis... (thread envio, esperando sessoes fix conectarem)&quot;);
+Thread.sleep(sleepTime);
+log.info(&quot; - liberando thread de envio&quot;);
+</stringProp>
+            <stringProp name="scriptLanguage">beanshell</stringProp>
+          </JSR223Sampler>
+          <hashTree/>
+        </hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
+          <stringProp name="filename">${baseDir}/../../massa/bvmf.012.02.txt</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">sender,target,instr_prec,instr_qtd,instr_secid,instr_symb,sell_firm,sell_route,sell_acc,buy_firm,buy_route,buy_acc,tradeId</stringProp>
+          <stringProp name="delimiter">;</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="shareMode">shareMode.group</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="35=8 ordem CSV" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;dropCopyPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-dc&quot;);
+String targetCompId = vars.get(&quot;targetCompID-dc&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+//ExecReport field
+TagUtil.setMsgFixTag(1180, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+String clOrdID = tradeDate + clOrdIDStr;
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - DropCopy
+// ------------------------------
+TagUtil.setMsgFixTag(150, fixMessage, &quot;0&quot;);
+// quantity
+TagUtil.setMsgFixTag(38, fixMessage, &quot;100&quot;);
+// OrdStatus New 0
+TagUtil.setMsgFixTag(39, fixMessage, &quot;0&quot;);
+// OrdType LIMIT 2
+TagUtil.setMsgFixTag(40, fixMessage, &quot;2&quot;);
+// preco
+TagUtil.setMsgFixTag(44, fixMessage, &quot;1.99&quot;);
+// side
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;1&quot;;
+} else {
+	side = &quot;2&quot;;
+}
+TagUtil.setMsgFixTag(54, fixMessage, side);
+TagUtil.setMsgFixTag(1, fixMessage, vars.get(&quot;account&quot;));
+TagUtil.setMsgFixTag(55, fixMessage, vars.get(&quot;symbol&quot;));
+//OrderId
+TagUtil.setMsgFixTag(37, fixMessage, vars.get(&quot;counterOrderId&quot;));
+//TradeId
+TagUtil.setMsgFixTag(17, fixMessage, vars.get(&quot;counterTradeId&quot;));
+
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);
+
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="35=8 negocio CSV" enabled="false">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;dropCopyPool&quot;);
+
+//get the message from the log file
+String logMessage = vars.get(&quot;logMessage&quot;);
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = vars.get(&quot;dataPregao&quot;);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-dc&quot;);
+String targetCompId = vars.get(&quot;targetCompID-dc&quot;);
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;B3SIMULA&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+//ExecReport field
+TagUtil.setMsgFixTag(1180, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+String clOrdID = tradeDate + clOrdIDStr;
+
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - DropCopy
+// ------------------------------
+TagUtil.setMsgFixTag(150, fixMessage, &quot;F&quot;);
+// quantity
+TagUtil.setMsgFixTag(38, fixMessage, &quot;100&quot;);
+// OrdStatus New 0
+TagUtil.setMsgFixTag(39, fixMessage, &quot;0&quot;);
+// OrdType LIMIT 2
+TagUtil.setMsgFixTag(40, fixMessage, &quot;2&quot;);
+// preco
+TagUtil.setMsgFixTag(44, fixMessage, &quot;1.99&quot;);
+// side
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;1&quot;;
+} else {
+	side = &quot;2&quot;;
+}
+TagUtil.setMsgFixTag(54, fixMessage, side);
+TagUtil.setMsgFixTag(1, fixMessage, vars.get(&quot;account&quot;));
+TagUtil.setMsgFixTag(55, fixMessage, vars.get(&quot;symbol&quot;));
+//OrderId
+TagUtil.setMsgFixTag(37, fixMessage, vars.get(&quot;counterOrderId&quot;));
+//TradeId
+TagUtil.setMsgFixTag(17, fixMessage, vars.get(&quot;counterTradeId&quot;));
+
+
+// Prepare to send the message
+String strFixMessage = fixMessage.toString();
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, strFixMessage);
+
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="criar payload bvmf.012" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.text.SimpleDateFormat
+import java.util.Date
+
+String key = vars.get(&quot;ISIN&quot;);
+
+if(&quot;&lt;EOF&gt;&quot;.equals(key)) {
+
+Long sleepTimeEof = 1l;
+Thread.sleep(sleepTimeEof);
+SampleResult.setStartNextThreadLoop(true);
+
+} else {
+//OUT.println(&quot;entrou&quot;);
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+
+String bizMsgId = vars.get(&quot;counterBizMsgId&quot;);
+vars.put(&quot;bizMsgId&quot;, bizMsgId);
+
+String allocId = &quot;T-3-&quot; + vars.get(&quot;counterAllocId&quot;) + &quot;-1&quot;;
+
+String clOrdIDStr = vars.get(&quot;counterClOrdID&quot;);
+Long clOrdIDInt =  new Long(clOrdIDStr);
+String side = null;
+if (clOrdIDInt % 2 == 1) {
+	side = &quot;BUIY&quot;;
+} else {
+	side = &quot;SELL&quot;;
+}
+String operation = side;
+
+String XMLContent = &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot; ?&gt;&lt;PayloadBVMF&gt;&lt;AppHdr xmlns=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:iso:std:iso:20022:tech:xsd:head.001.001.01 head.001.001.01.xsd\&quot;&gt;&lt;BizMsgIdr&gt;&quot;+ bizMsgId + &quot;&lt;/BizMsgIdr&gt;&lt;MsgDefIdr&gt;&quot; + vars.get(&quot;messageID&quot;) + &quot;&lt;/MsgDefIdr&gt;&lt;CreDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.0Z&lt;/CreDt&gt;&lt;Fr&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;BVMF&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/Fr&gt;&lt;To&gt;&lt;OrgId&gt;&lt;Id&gt;&lt;OrgId&gt;&lt;Othr&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;SchmeNm&gt;&lt;Prtry&gt;39&lt;/Prtry&gt;&lt;/SchmeNm&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;/Othr&gt;&lt;/OrgId&gt;&lt;/Id&gt;&lt;/OrgId&gt;&lt;/To&gt;&lt;/AppHdr&gt;&lt;Document xmlns=\&quot;urn:bvmf.012.02.xsd\&quot; xmlns:n2=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:bvmf.012.02.xsd bvmf.012.02.xsd\&quot;&gt;&lt;TradLegNtfctn&gt;&lt;ClrMmb&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;2-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/ClrMmb&gt;&lt;ClrAcct&gt;&lt;Id&gt;&quot; + vars.get(&quot;account&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;CLIE&lt;/Tp&gt;&lt;/ClrAcct&gt;&lt;TradLegDtls&gt;&lt;TradLegId&gt;0&lt;/TradLegId&gt;&lt;TradExctnId&gt;0&lt;/TradExctnId&gt;&lt;TradgCpcty&gt;PRIN&lt;/TradgCpcty&gt;&lt;TradTp&gt;LKTR&lt;/TradTp&gt;&lt;TradDt&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T00:00:00.000&lt;/TradDt&gt;&lt;BuySellInd&gt;&quot;+ operation +&quot;&lt;/BuySellInd&gt;&lt;TradgPty&gt;&lt;PrtryId&gt;&lt;Id&gt;&quot;+ &quot;3-&quot; + vars.get(&quot;firm&quot;) + &quot;&lt;/Id&gt;&lt;Issr&gt;40&lt;/Issr&gt;&lt;SchmeNm&gt;39&lt;/SchmeNm&gt;&lt;/PrtryId&gt;&lt;/TradgPty&gt;&lt;FinInstrmId&gt;&lt;ISIN&gt;&quot; + vars.get(&quot;ISIN&quot;) + &quot;&lt;/ISIN&gt;&lt;OthrId&gt;&lt;Id&gt;&quot; + vars.get(&quot;finInstrId&quot;) + &quot;&lt;/Id&gt;&lt;Tp&gt;&lt;Prtry&gt;8&lt;/Prtry&gt;&lt;/Tp&gt;&lt;/OthrId&gt;&lt;/FinInstrmId&gt;&lt;PlcOfTrad&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfTrad&gt;&lt;PlcOfListg&gt;&lt;Id&gt;&lt;MktIdrCd&gt;BVMF&lt;/MktIdrCd&gt;&lt;/Id&gt;&lt;Tp&gt;&lt;Cd&gt;EXCH&lt;/Cd&gt;&lt;/Tp&gt;&lt;/PlcOfListg&gt;&lt;TradQty&gt;&lt;Unit&gt;100&lt;/Unit&gt;&lt;/TradQty&gt;&lt;DealPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0.02&lt;/Amt&gt;&lt;/Val&gt;&lt;/DealPric&gt;&lt;/TradLegDtls&gt;&lt;SttlmDtls&gt;&lt;SttlmAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;0&lt;/Amt&gt;&lt;/SttlmAmt&gt;&lt;/SttlmDtls&gt;&lt;SplmtryData&gt;&lt;Envlp&gt;&lt;Cnts&gt;&lt;Document xmlns=\&quot;urn:SUPL.012.02.xsd\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;urn:SUPL.012.02  SUPL.012.02.xsd\&quot;&gt;&lt;TradLegNtfctnSD&gt;&lt;AllcnInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;Allcn&gt;&lt;AllcnId&gt;&quot; + allocId + &quot;&lt;/AllcnId&gt;&lt;SubAcct&gt;21016&lt;/SubAcct&gt;&lt;/Allcn&gt;&lt;/AllcnInf&gt;&lt;FinInstrmId&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;TckrSymb&gt;&quot; + vars.get(&quot;symbol&quot;) + &quot;&lt;/TckrSymb&gt;&lt;/FinInstrmId&gt;&lt;FinInstrmAttrbts&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;CurFctr&gt;1&lt;/CurFctr&gt;&lt;Sgmt&gt;&quot; + vars.get(&quot;segmento&quot;) + &quot;&lt;/Sgmt&gt;&lt;Mkt&gt;&quot; + vars.get(&quot;mercado&quot;) + &quot;&lt;/Mkt&gt;&lt;/FinInstrmAttrbts&gt;&lt;TradLegDtlsXtnsn&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn/TradLegDtls&lt;/PlcAndNm&gt;&lt;OrdrId&gt;&quot; + vars.get(&quot;counterOrderId&quot;) + &quot;&lt;/OrdrId&gt;&lt;TradId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradId&gt;&lt;TradMtchId&gt;&quot; + vars.get(&quot;counterTradeId&quot;) + &quot;&lt;/TradMtchId&gt;&lt;TradgSsnId&gt;1&lt;/TradgSsnId&gt;&lt;TradRegnOrgn&gt;DMA1&lt;/TradRegnOrgn&gt;&lt;TradgSsnSubId&gt;17&lt;/TradgSsnSubId&gt;&lt;TradrId&gt;379&lt;/TradrId&gt;&lt;TradTxTp&gt;0&lt;/TradTxTp&gt;&lt;TxDtTm&gt;&quot; + vars.get(&quot;requestLoopY-M-D&quot;) + &quot;T&quot; + vars.get(&quot;requestLoopH:M:S&quot;) + &quot;.&quot; + vars.get(&quot;requestLoopSSS&quot;)+ &quot;&lt;/TxDtTm&gt;&lt;ExrcPric&gt;&lt;Val&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;1.99&lt;/Amt&gt;&lt;/Val&gt;&lt;/ExrcPric&gt;&lt;GrssTradAmt&gt;&lt;Amt Ccy=\&quot;BRL\&quot;&gt;100.00000&lt;/Amt&gt;&lt;/GrssTradAmt&gt;&lt;/TradLegDtlsXtnsn&gt;&lt;GvUpInf&gt;&lt;PlcAndNm&gt;//Document/TradLegNtfctn&lt;/PlcAndNm&gt;&lt;GvUpOnCaptr&gt;false&lt;/GvUpOnCaptr&gt;&lt;/GvUpInf&gt;&lt;/TradLegNtfctnSD&gt;&lt;/Document&gt;&lt;/Cnts&gt;&lt;/Envlp&gt;&lt;/SplmtryData&gt;&lt;/TradLegNtfctn&gt;&lt;/Document&gt;&lt;/PayloadBVMF&gt;&quot;;
+
+vars.put(&quot;XMLContent&quot;, XMLContent);
+vars.put(&quot;XMLContentLen&quot;, XMLContent.length() + &quot;&quot; );
+
+}
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Data do pregao preProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+DateFormat pregaoDF = new SimpleDateFormat(&quot;yyyyMMdd&quot;);
+String pregaoStr = vars.get(&quot;dataPregao&quot;);
+
+if (pregaoStr != null) {
+	d = pregaoDF.parse(pregaoStr);
+} else {
+	d = new Date();
+	//vars.put(&quot;dataPregao&quot;, pregaoDF.format(d));
+}
+
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+
+Date h = new Date();
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(h));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(h));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(h));
+</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PreProcessor>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="send bvmf.012 RAW" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import br.com.primeup.java.fixmeter.fix.Injector;
+import br.com.primeup.java.fixmeter.util.TagUtil;
+
+//create a single injector object to send all the messages
+Injector injector = Injector.getInjectorFromPool(&quot;capturaPool&quot;);
+//String fixPayload = &quot;20200414-13:30:31.307 [I]: 8=FIX.4.4&#x1;9=3111&#x1;35=n&#x1;34=341549&#x1;49=SMPISO052&#x1;52=20200414-13:30:31.473&#x1;56=P00000310&#x1;128=P00000310&#x1;11=BV000343202004140012002240002808990&#x1;60=20200414-13:30:31&#x1;453=1&#x1;447=D&#x1;448=000999&#x1;452=7&#x1;9225=bvmf.012.02&#x1;20001=PORXMLAQUI&#x1;20002=2907&#x1;10=237&#x1;&quot;
+
+//get the message from the log file example
+String logMessage = vars.get(&quot;logMessage&quot;);
+//String logMessage = fixPayload;
+
+//removes the start of the log that is not part of the fix message and convert it to a String Builder
+StringBuilder fixMessage = new StringBuilder(logMessage.substring(logMessage.indexOf(&quot;8=FIX&quot;)));
+
+//update all fields as needed to resend the massage 
+//(carefull: all messages on the input file must have the fields that are seted here)
+
+// set common fiels to all message types (header)
+// --------------------------------------------------
+// set the TransactTime
+LocalDateTime localDateTime = LocalDateTime.now();
+DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd-HH:mm:ss.SSS&quot;);
+DateTimeFormatter tradeDateFormatter = DateTimeFormatter.ofPattern(&quot;yyyyMMdd&quot;);
+
+String tradeDate = localDateTime.format(tradeDateFormatter);
+String strFormattedLocalDate = localDateTime.format(dateTimeFormatter);
+
+TagUtil.setMsgFixTag(60, fixMessage, strFormattedLocalDate);
+
+// set session parameters (senderCompID and targetCompID)
+//get the original sender comp id and target comp id of the message to send it again
+String senderCompId = vars.get(&quot;senderCompID-cap-primaria&quot;);
+String targetCompId = vars.get(&quot;targetCompID-cap-primaria&quot;);
+String sessionId = senderCompId + &quot;-&quot; + targetCompId;
+
+TagUtil.setMsgFixTag(49, fixMessage, senderCompId);
+TagUtil.setMsgFixTag(56, fixMessage, targetCompId);
+
+String tradeSessionFIX = new String(&quot;P00000310&quot;);
+TagUtil.setMsgFixTag(128, fixMessage, tradeSessionFIX);
+
+// set basic Fields - trading
+// ----------------------- 
+//set the ClOrdID
+String clOrdID = tradeDate + vars.get(&quot;counterClOrdID&quot;);
+TagUtil.setMsgFixTag(11, fixMessage, clOrdID);
+//TagUtil.setMsgFixTag(75, fixMessage, tradeDate);
+
+// set specific fields - bvmf.012
+// ------------------------------
+
+Date d = new Date();
+
+vars.put(&quot;messageID&quot;, &quot;bvmf.012.02&quot;);
+vars.put(&quot;requestLoopYMD&quot;, new SimpleDateFormat(&quot;yyyyMMdd&quot;).format(d));
+vars.put(&quot;requestLoopY-M-D&quot;, new SimpleDateFormat(&quot;yyyy-MM-dd&quot;).format(d));
+vars.put(&quot;requestLoopHMS&quot;, new SimpleDateFormat(&quot;HHmmss&quot;).format(d));
+vars.put(&quot;requestLoopH:M:S&quot;, new SimpleDateFormat(&quot;HH:mm:ss&quot;).format(d));
+vars.put(&quot;requestLoopSSS&quot;, new SimpleDateFormat(&quot;SSS&quot;).format(d));
+
+
+//String XMLContent = vars.get(&quot;XMLContent&quot;);
+//String xmlLength = XMLContent.length();
+
+//TagUtil.setMsgFixTag(20001, fixMessage, XMLContent);
+//TagUtil.setMsgFixTag(20002, fixMessage, xmlLength);
+
+//send the message		
+injector.sendGenericRawFixMessage(sessionId, fixMessage.toString());</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - clordID" enabled="true">
+          <stringProp name="CounterConfig.start">1000000000020</stringProp>
+          <stringProp name="CounterConfig.end">1999999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterClOrdID</stringProp>
+          <stringProp name="CounterConfig.format">0000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - counterBizMsgId" enabled="true">
+          <stringProp name="CounterConfig.start">1000000020</stringProp>
+          <stringProp name="CounterConfig.end">1999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterBizMsgId</stringProp>
+          <stringProp name="CounterConfig.format">0000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - orderId" enabled="true">
+          <stringProp name="CounterConfig.start">20</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterOrderId</stringProp>
+          <stringProp name="CounterConfig.format">20000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - tradeId" enabled="true">
+          <stringProp name="CounterConfig.start">20</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterTradeId</stringProp>
+          <stringProp name="CounterConfig.format">20000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - allocId" enabled="true">
+          <stringProp name="CounterConfig.start">20</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterAllocId</stringProp>
+          <stringProp name="CounterConfig.format">000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="CounterClOrdID" enabled="false">
+          <stringProp name="CounterConfig.start">10</stringProp>
+          <stringProp name="CounterConfig.end">9999999999999</stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">counterClOrdID</stringProp>
+          <stringProp name="CounterConfig.format">000000000000000</stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+      </hashTree>
+      <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter - clordID" enabled="false">
+        <stringProp name="CounterConfig.start">1001</stringProp>
+        <stringProp name="CounterConfig.end">1999999999999</stringProp>
+        <stringProp name="CounterConfig.incr">1</stringProp>
+        <stringProp name="CounterConfig.name">counterClOrdID</stringProp>
+        <stringProp name="CounterConfig.format">0000000000000</stringProp>
+        <boolProp name="CounterConfig.per_user">false</boolProp>
+      </CounterConfig>
+      <hashTree/>
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>false</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">brad${__time(yyyyMMddHHmmss,)}.jtl</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="Simple Data Writer erro" enabled="true">
+        <boolProp name="ResultCollector.error_logging">true</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">braderros${__time(yyyyMMddHHmmss,)}.xml</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
